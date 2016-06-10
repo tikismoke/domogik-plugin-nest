@@ -1,0 +1,239 @@
+{
+    "configuration": [{
+	"description": "Email of your Nest account",
+	"key": "email_address",
+	"name": "Email address",
+	"required": "yes",
+	"default": "",
+	"type": "string"
+    }, {
+	"description": "Password of your Nest account",
+	"key": "password",
+	"name": "Password",
+	"required": "yes",
+	"default": "",
+	"type": "password"
+    }, {
+	"description": "Refresh period in seconds",
+	"key": "period",
+	"name": "Period",
+	"required": "yes",
+	"default": "600",
+	"type": "integer"
+    }],
+    "commands": {},
+    "xpl_commands": {},
+    "sensors": {
+	"name": {
+	    "name": "name",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	},
+	"postal_code": {
+	    "name": "postal_code",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	},
+	"country_code": {
+	    "name": "country_code",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	},
+	"house_type": {
+	    "name": "house_type",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	},
+	"renovation_date": {
+	    "name": "renovation_date",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	},
+	"measurement_scale": {
+	    "name": "house_type",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	},
+	"emergency_contact_type": {
+	    "name": "emergency_contact_type",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	},
+	"emergency_contact_description": {
+	    "name": "emergency_contact_description",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	},
+	"emergency_contact_phone": {
+	    "name": "emergency_contact_phone",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	},
+	"structure_area_m2": {
+	    "name": "structure_area_m2",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	},
+	"away": {
+	    "name": "away",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	}
+    },
+    "xpl_stats": {},
+    "device_types": {
+	"nest.protect": {
+	    "id": "nest.protect",
+	    "description": "Smoke and Co2 alarm",
+	    "name": "Nest Protect",
+	    "commands": [],
+	    "sensors": ["name"],
+	    "parameters": [{
+		"key": "Name",
+		"xpl": false,
+		"description": "Nameme of the protect",
+		"type": "string"
+	    }]
+	},
+	"nest.thermostat": {
+	    "id": "gpio.input",
+	    "description": "Learning Thermostat",
+	    "name": "Nest thermostat",
+	    "commands": [],
+	    "sensors": ["name"],
+	    "parameters": [{
+		"key": "Name",
+		"xpl": false,
+		"description": "Name of the thermostat",
+		"type": "string"
+	    }]
+	},
+	"nest.home": {
+	    "id": "nest.home",
+	    "description": "House description",
+	    "name": "Nest home",
+	    "commands": [],
+	    "sensors": ["name", "postal_code", "country_code", "house_type", "renovation_date", "measurement_scale", "emergency_contact_type", "emergency_contact_description", "emergency_contact_phone", "structure_area_m2", "away"],
+	    "parameters": [{
+		"key": "Name",
+		"xpl": false,
+		"description": "Name of the house",
+		"type": "string"
+	    }]
+	}
+    },
+    "identity": {
+	"author": "tikismoke",
+	"author_email": "new.domodroid at gmail.com",
+	"tags": ["nest,thermostat"],
+	"dependencies": [{
+	    "id": "python-nest (>=2.8.0)",
+	    "type": "python"
+	}],
+	"description": "Plugin for nest protect and thermostatmostat",
+	"domogik_min_version": "0.5.0",
+	"name": "nest",
+	"type": "plugin",
+	"version": "0.1"
+    },
+    "json_version": 2
+}
