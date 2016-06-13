@@ -80,7 +80,7 @@ class NESTclass:
 
 
     # -------------------------------------------------------------------------------------------------
-    def readNestApi(self):
+    def readNestApi(self, name):
         """
         read the nest api
         """
@@ -90,17 +90,22 @@ class NESTclass:
                 self._log.debug("Strucutre: '%s' " % structure)
 		event = self.mapStructure(structure)
                 self._log.debug("Event data: '%s' " % event)
-		return event
+		if name== structure.name:
+		    return event
                 # Loop through all Thermostats
                 for thermostat in structure.devices:
                     self._log.debug("thermostat name: '%s' " % thermostat.name)
                     event = self.mapThermostat(thermostat)
                     self._log.debug("Event data: '%s' " % event)
+		    if name== thermostat.name:
+			return event
                 # Loop through all Protects
                 for protect in structure.protectdevices:
                     self._log.debug("protect name: '%s' " % protect.name)
                     event = self.mapProtect(protect)
                     self._log.debug("Event data: '%s' " % event)
+		    if name== protect.name:
+			return event
 
         except AttributeError:
             self._log.error(u"### Sensor '%s', ERROR while reading value." % sensor)
@@ -130,7 +135,7 @@ class NESTclass:
         """
         while not stop.isSet():
 	    self.napi = nest.Nest(self.user, self.password)
-            val = self.readNestApi()
+            val = self.readNestApi(name)
             if val != "failed":
                 send(deviceid, val)
             self._log.debug(u"=> '{0}' : wait for {1} seconds".format(device, self.period))

@@ -95,7 +95,7 @@
 	    }
 	},
 	"measurement_scale": {
-	    "name": "house_type",
+	    "name": "measurement_scale",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
