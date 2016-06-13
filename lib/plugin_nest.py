@@ -87,17 +87,20 @@ class NESTclass:
         try:
             # Loop through Nest structures aka homes
             for structure in self.napi.structures:
-                self._log.debug(u"Strucutre: '%s' " % structure)
+                self._log.debug("Strucutre: '%s' " % structure)
 		event = self.mapStructure(structure)
-                self._log.debug(u"Event data: '%s' " % event)
+                self._log.debug("Event data: '%s' " % event)
+		return event
                 # Loop through all Thermostats
                 for thermostat in structure.devices:
+                    self._log.debug("thermostat name: '%s' " % thermostat.name)
                     event = self.mapThermostat(thermostat)
-                    self._log.debug(u"Event data: '%s' " % event)
+                    self._log.debug("Event data: '%s' " % event)
                 # Loop through all Protects
                 for protect in structure.protectdevices:
+                    self._log.debug("protect name: '%s' " % protect.name)
                     event = self.mapProtect(protect)
-                    self._log.debug(u"Event data: '%s' " % event)
+                    self._log.debug("Event data: '%s' " % event)
 
         except AttributeError:
             self._log.error(u"### Sensor '%s', ERROR while reading value." % sensor)
@@ -134,88 +137,80 @@ class NESTclass:
             stop.wait(self.period)
 
     def mapProtect(self, protect):
-	event = [{
+	event = {
     	    'measurement': 'nest.protect',
-            'tags': {
-                'name': protect.name,
-                'where': protect.where,
-                'serial': protect.serial,
-                'product_id': protect.product_id,
-                },
-            'fields': {
-                'auto_away': self.boolify(protect.auto_away),
-                'battery_level': float(protect.battery_level),
-                'co_blame_duration': protect.co_blame_duration,
-                'co_blame_threshold': protect.co_blame_threshold,
-                'co_previous_peak': protect.co_previous_peak,
-                'co_status': protect.co_status,
-                'smoke_status': protect.smoke_status,
-                'component_als_test_passed': self.boolify(protect.component_als_test_passed),  # noqa
-                'component_co_test_passed': self.boolify(protect.component_co_test_passed),  # noqa
-                'component_heat_test_passed': self.boolify(protect.component_heat_test_passed),  # noqa
-                'component_hum_test_passed': self.boolify(protect.component_hum_test_passed),  # noqa
-                'component_led_test_passed': self.boolify(protect.component_led_test_passed),  # noqa
-                'component_pir_test_passed': self.boolify(protect.component_pir_test_passed),  # noqa
-                'component_smoke_test_passed': self.boolify(protect.component_smoke_test_passed),  # noqa
-                'component_temp_test_passed': self.boolify(protect.component_temp_test_passed),  # noqa
-                'component_us_test_passed': self.boolify(protect.component_us_test_passed),  # noqa
-                'component_wifi_test_passed': self.boolify(protect.component_wifi_test_passed),  # noqa
-                'gesture_hush_enable': self.boolify(protect.gesture_hush_enable),
-                'heads_up_enable': self.boolify(protect.heads_up_enable),
-                'home_alarm_link_capable': self.boolify(protect.home_alarm_link_capable),
-                'home_alarm_link_connected': self.boolify(protect.home_alarm_link_connected),  # noqa
-                'hushed_state': self.boolify(protect.hushed_state),
-                'latest_manual_test_cancelled': self.boolify(protect.latest_manual_test_cancelled),  # noqa
-                'line_power_present': self.boolify(protect.line_power_present),
-                'night_light_continuous': self.boolify(protect.night_light_continuous),  # noqa
-                'night_light_enable': self.boolify(protect.night_light_enable),
-                'ntp_green_led_enable': self.boolify(protect.ntp_green_led_enable),  # noqa
-                'steam_detection_enable': self.boolify(protect.steam_detection_enable),  # noqa
-                'wired_led_enable': self.boolify(protect.wired_led_enable),
-                'description': protect.description,
-                'software_version': protect.software_version,
-                'wifi_ip_address': protect.wifi_ip_address,
-                'wifi_mac_address': protect.wifi_mac_address,
-                'thread_mac_address': protect.thread_mac_address,
-                'battery_health_state': protect.battery_health_state,
-                'capability_level': protect.capability_level,
-                'certification_body': protect.certification_body,
-                'creation_time': self.epoch2date(protect.creation_time/1000),
-                'home_alarm_link_type': protect.home_alarm_link_type,
-                'latest_manual_test_end_utc_secs': protect.latest_manual_test_end_utc_secs,  # noqa
-                'latest_manual_test_start_utc_secs': protect.latest_manual_test_start_utc_secs,  # noqa
-                'replace_by_date_utc_secs': self.epoch2date(protect.replace_by_date_utc_secs),  # noqa
-                'co_sequence_number': protect.co_sequence_number,
-                'smoke_sequence_number': protect.smoke_sequence_number,
-                'wired_or_battery': protect.wired_or_battery
-        	}
-        }]
+            'name': protect.name,
+            'where': protect.where,
+            'serial': protect.serial,
+            'product_id': protect.product_id,
+            'auto_away': self.boolify(protect.auto_away),
+            'battery_level': float(protect.battery_level),
+            'co_blame_duration': protect.co_blame_duration,
+            'co_blame_threshold': protect.co_blame_threshold,
+            'co_previous_peak': protect.co_previous_peak,
+            'co_status': protect.co_status,
+            'smoke_status': protect.smoke_status,
+            'component_als_test_passed': self.boolify(protect.component_als_test_passed),  # noqa
+            'component_co_test_passed': self.boolify(protect.component_co_test_passed),  # noqa
+            'component_heat_test_passed': self.boolify(protect.component_heat_test_passed),  # noqa
+            'component_hum_test_passed': self.boolify(protect.component_hum_test_passed),  # noqa
+            'component_led_test_passed': self.boolify(protect.component_led_test_passed),  # noqa
+            'component_pir_test_passed': self.boolify(protect.component_pir_test_passed),  # noqa
+            'component_smoke_test_passed': self.boolify(protect.component_smoke_test_passed),  # noqa
+            'component_temp_test_passed': self.boolify(protect.component_temp_test_passed),  # noqa
+            'component_us_test_passed': self.boolify(protect.component_us_test_passed),  # noqa
+            'component_wifi_test_passed': self.boolify(protect.component_wifi_test_passed),  # noqa
+            'gesture_hush_enable': self.boolify(protect.gesture_hush_enable),
+            'heads_up_enable': self.boolify(protect.heads_up_enable),
+            'home_alarm_link_capable': self.boolify(protect.home_alarm_link_capable),
+            'home_alarm_link_connected': self.boolify(protect.home_alarm_link_connected),  # noqa
+            'hushed_state': self.boolify(protect.hushed_state),
+            'latest_manual_test_cancelled': self.boolify(protect.latest_manual_test_cancelled),  # noqa
+            'line_power_present': self.boolify(protect.line_power_present),
+            'night_light_continuous': self.boolify(protect.night_light_continuous),  # noqa
+            'night_light_enable': self.boolify(protect.night_light_enable),
+            'ntp_green_led_enable': self.boolify(protect.ntp_green_led_enable),  # noqa
+            'steam_detection_enable': self.boolify(protect.steam_detection_enable),  # noqa
+            'wired_led_enable': self.boolify(protect.wired_led_enable),
+            'description': protect.description,
+            'software_version': protect.software_version,
+            'wifi_ip_address': protect.wifi_ip_address,
+            'wifi_mac_address': protect.wifi_mac_address,
+            'thread_mac_address': protect.thread_mac_address,
+            'battery_health_state': protect.battery_health_state,
+            'capability_level': protect.capability_level,
+            'certification_body': protect.certification_body,
+            'creation_time': self.epoch2date(protect.creation_time/1000),
+            'home_alarm_link_type': protect.home_alarm_link_type,
+            'latest_manual_test_end_utc_secs': protect.latest_manual_test_end_utc_secs,  # noqa
+            'latest_manual_test_start_utc_secs': protect.latest_manual_test_start_utc_secs,  # noqa
+            'replace_by_date_utc_secs': self.epoch2date(protect.replace_by_date_utc_secs),  # noqa
+            'co_sequence_number': protect.co_sequence_number,
+            'smoke_sequence_number': protect.smoke_sequence_number,
+            'wired_or_battery': protect.wired_or_battery
+        }
         return event
 
     def mapStructure(self, structure):
-        event = [{
+        event = {
             'measurement': 'nest.structure',
-            'tags': {
-                'name': structure.name,
-                },
-            'fields': {
-                'postal_code': structure.postal_code,
-                'country_code': structure.country_code,
-                'house_type': structure.house_type,
-                'renovation_date': structure.renovation_date,
-                'measurement_scale': structure.measurement_scale,
-                'emergency_contact_description': structure.emergency_contact_description,  # noqa
-                'emergency_contact_type': structure.emergency_contact_type,
-                'emergency_contact_phone': structure.emergency_contact_phone,
-                'structure_area_m2': ('%0.0f' % structure.structure_area),
-#                'structure_area_ft2': ('%0.0f' % m2toft2(structure.structure_area)),  # noqa
-#                'dr_reminder_enabled': structure.dr_reminder_enabled,
-#                'enhanced_auto_away_enabled': structure.enhanced_auto_away_enabled,
-#                'eta_preconditioning_active': structure.eta_preconditioning_active,
-#                'hvac_safety_shutoff_enabled': self.boolify(structure.hvac_safety_shutoff_enabled),
-                'away': structure.away
-                }
-        }]
+            'name': structure.name,
+            'postal_code': structure.postal_code,
+            'country_code': structure.country_code,
+            'house_type': structure.house_type,
+            'renovation_date': structure.renovation_date,
+            'measurement_scale': structure.measurement_scale,
+            'emergency_contact_description': structure.emergency_contact_description,  # noqa
+            'emergency_contact_type': structure.emergency_contact_type,
+            'emergency_contact_phone': structure.emergency_contact_phone,
+            'structure_area_m2': ('%0.0f' % structure.structure_area),
+#            'structure_area_ft2': ('%0.0f' % m2toft2(structure.structure_area)),  # noqa
+#            'dr_reminder_enabled': structure.dr_reminder_enabled,
+#            'enhanced_auto_away_enabled': structure.enhanced_auto_away_enabled,
+#            'eta_preconditioning_active': structure.eta_preconditioning_active,
+#            'hvac_safety_shutoff_enabled': self.boolify(structure.hvac_safety_shutoff_enabled),
+            'away': structure.away
+        }
     
         return event
 

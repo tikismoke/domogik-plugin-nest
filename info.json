@@ -188,9 +188,9 @@
 	    "commands": [],
 	    "sensors": ["name"],
 	    "parameters": [{
-		"key": "Name",
+		"key": "Serial",
 		"xpl": false,
-		"description": "Nameme of the protect",
+		"description": "Serial of the protect",
 		"type": "string"
 	    }]
 	},
@@ -201,9 +201,9 @@
 	    "commands": [],
 	    "sensors": ["name"],
 	    "parameters": [{
-		"key": "Name",
+		"key": "Serial",
 		"xpl": false,
-		"description": "Name of the thermostat",
+		"description": "Serial of the thermostat",
 		"type": "string"
 	    }]
 	},

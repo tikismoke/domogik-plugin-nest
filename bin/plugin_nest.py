@@ -43,6 +43,7 @@ from domogik_packages.plugin_nest.lib.plugin_nest import NESTclass
 
 import threading
 import time
+import json
 
 
 class nestManager(Plugin):
@@ -82,19 +83,22 @@ class nestManager(Plugin):
             self.force_leave()
             return
 
-        # ### For each device
+        # ### For each home device
         self.device_list = {}
         threads = {}
         for a_device in self.devices:
             self.log.info(u"a_device:   %s" % format(a_device))
 
-            device_name = a_device["name"]
+	    try:
+                device_name = a_device["name"]
+	    except:
+		device_name = a_device["serial"]
             device_id = a_device["id"]
             device_type = a_device["device_type_id"]
             sensor_name = self.get_parameter(a_device, "name")
             self.device_list.update({device_id : {'name': device_name, 'named': sensor_name}})
 
-            if device_type != "gpio.output":
+            if device_type != "nest.":
                 self.log.info(u"==> Device '{0}' (id:{1}/{2}), name = {3}".format(device_name, device_id, device_type, sensor_name))
                 self.log.debug(u"==> Sensor list of device '{0}': '{1}'".format(device_id, self.sensors[device_id]))
 
@@ -115,7 +119,7 @@ class nestManager(Plugin):
                 time.sleep(5)        # Wait some time to not start the threads with the same interval et the same time.
 
             else:
-                self.log.info(u"==> Device '{0}' (id:{1}/{2}), pin = {3}".format(device_name, device_id, device_type, sensor_pin))
+                self.log.info(u"==> Device '{0}' (id:{1}/{2}), ".format(device_name, device_id, device_type))
 
         self.ready()
 
@@ -125,9 +129,12 @@ class nestManager(Plugin):
         """ Send the sensors values over MQ
         """
         data = {}
-        for sensor in self.sensors[device_id]:                  # "for" nécessaire pour les 2 sensors counter : '1-wire counter diff' et '1-wire counter'
-            data[self.sensors[device_id][sensor]] = value       # sensor = sensor name in info.json file
-        self.log.debug(u"==> Update Sensor '%s' for device id %s (%s)" % (format(data), device_id, self.device_list[device_id]["name"]))    # {u'id': u'value'}
+	value_dumps= json.dumps(value)
+	value_dict = json.loads(value_dumps)
+        for sensor in self.sensors[device_id]:
+	    self.log.debug(u"value receive : '%s' for sensors: '%s' " % (value_dict[sensor], sensor))
+            data[self.sensors[device_id][sensor]] = value_dict[sensor]
+#        self.log.debug(u"==> Update Sensor '%s' for device id %s (%s)" % (format(data), device_id, self.device_list[device_id]["name"]))    # {u'id': u'value'}
 
         try:
             self._pub.send_event('client.sensor', data)
