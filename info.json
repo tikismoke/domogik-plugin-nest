@@ -12,7 +12,7 @@
 	"name": "Password",
 	"required": "yes",
 	"default": "",
-	"type": "password"
+	"type": "string"
     }, {
 	"description": "Refresh period in seconds",
 	"key": "period",
