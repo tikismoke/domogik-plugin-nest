@@ -177,6 +177,556 @@
                 "expire": 0,
                 "round_value": 0
 	    }
+	},
+	"measurement": {
+	    "name": "measurement",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"name": {
+	    "name": "name",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"where": {
+	    "name": "where",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"serial": {
+	    "name": "serial",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"product_id": {
+	    "name": "product_id",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"auto_away": {
+	    "name": "auto_away",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"battery_level": {
+	    "name": "battery_level",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"co_blame_duration": {
+	    "name": "co_blame_duration",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"co_blame_threshold": {
+	    "name": "co_blame_threshold",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"co_previous_peak": {
+	    "name": "co_previous_peak",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"co_status": {
+	    "name": "co_status",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"smoke_status": {
+	    "name": "smoke_status",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"component_als_test_passed": {
+	    "name": "component_als_test_passed",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"component_co_test_passed": {
+	    "name": "component_co_test_passed",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"component_heat_test_passed": {
+	    "name": "component_heat_test_passed",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"component_hum_test_passed": {
+	    "name": "component_hum_test_passed",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"component_led_test_passed": {
+	    "name": "component_led_test_passed",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"component_pir_test_passed": {
+	    "name": "component_pir_test_passed",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"component_smoke_test_passed": {
+	    "name": "component_smoke_test_passed",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"component_temp_test_passed": {
+	    "name": "component_temp_test_passed",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"component_us_test_passed": {
+	    "name": "component_us_test_passed",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"component_wifi_test_passed": {
+	    "name": "component_wifi_test_passed",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"gesture_hush_enable": {
+	    "name": "gesture_hush_enable",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"heads_up_enable": {
+	    "name": "heads_up_enable",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"home_alarm_link_capable": {
+	    "name": "home_alarm_link_capable",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"home_alarm_link_connected": {
+	    "name": "home_alarm_link_connected",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"hushed_state": {
+	    "name": "hushed_state",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"latest_manual_test_cancelled": {
+	    "name": "latest_manual_test_cancelled",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"line_power_present": {
+	    "name": "line_power_present",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"night_light_continuous": {
+	    "name": "night_light_continuous",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"night_light_enable": {
+	    "name": "night_light_enable",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"ntp_green_led_enable": {
+	    "name": "ntp_green_led_enable",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"steam_detection_enable": {
+	    "name": "steam_detection_enable",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"wired_led_enable": {
+	    "name": "wired_led_enable",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"description": {
+	    "name": "description",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"software_version": {
+	    "name": "software_version",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"wifi_ip_address": {
+	    "name": "wifi_ip_address",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"wifi_mac_address": {
+	    "name": "wifi_mac_address",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"thread_mac_address": {
+	    "name": "thread_mac_address",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"battery_health_state": {
+	    "name": "battery_health_state",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"capability_level": {
+	    "name": "capability_level",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"certification_body": {
+	    "name": "certification_body",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"creation_time": {
+	    "name": "creation_time",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"home_alarm_link_type": {
+	    "name": "home_alarm_link_type",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"latest_manual_test_end_utc_secs": {
+	    "name": "latest_manual_test_end_utc_secs",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"latest_manual_test_start_utc_secs": {
+	    "name": "latest_manual_test_start_utc_secs",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"replace_by_date_utc_secs": {
+	    "name": "replace_by_date_utc_secs",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"co_sequence_number": {
+	    "name": "co_sequence_number",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"smoke_sequence_number": {
+	    "name": "smoke_sequence_number",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
+	},
+	"wired_or_battery": {
+	    "name": "wired_or_battery",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false
+	    }
 	}
     },
     "xpl_stats": {},
@@ -186,7 +736,7 @@
 	    "description": "Smoke and Co2 alarm",
 	    "name": "Nest Protect",
 	    "commands": [],
-	    "sensors": ["name"],
+	    "sensors": ["measurement", "name", "where", "serial", "product_id", "auto_away", "battery_level", "co_blame_duration", "co_blame_threshold", "co_previous_peak", "co_status", "smoke_status", "component_als_test_passed",  "component_co_test_passed", "component_heat_test_passed", "component_hum_test_passed", "component_led_test_passed", "component_pir_test_passed", "component_smoke_test_passed", "component_temp_test_passed", "component_us_test_passed", "component_wifi_test_passed",, "gesture_hush_enable", "heads_up_enable", "home_alarm_link_capable", "home_alarm_link_connected", "hushed_state", "latest_manual_test_cancelled", "line_power_present", "night_light_continuous", "night_light_enable", "ntp_green_led_enable", "steam_detection_enable", "wired_led_enable", "description", "software_version", "wifi_ip_address", "wifi_mac_address", "thread_mac_address", "battery_health_state", "capability_level", "certification_body", "creation_time", "home_alarm_link_type", "latest_manual_test_end_utc_secs", "latest_manual_test_start_utc_secs", "replace_by_date_utc_secs", "co_sequence_number", "smoke_sequence_number", "wired_or_battery"],
 	    "parameters": [{
 		"key": "Serial",
 		"xpl": false,
