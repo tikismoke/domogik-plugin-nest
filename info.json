@@ -877,7 +877,358 @@
                 "expire": 0,
                 "round_value": 0
 	    }
-	}
+	},
+        "last_ip": {
+	    "name": "last_ip",
+    	    "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+    		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+	},
+        "local_ip": {
+            "name": "local_ip",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+        },
+        "mode": {
+            "name": "mode",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+    		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+        },
+        "last_connection": {
+            "name": "last_connection",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+        },
+	"error_code": {
+            "name": "error_code",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+        	"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+        },
+	"fan": {
+    	    "name": "fan",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+        },
+	"temperature_C": {
+            "name": "temperature_C",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+    		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+	},
+        "temperature_F": {
+            "name": "temperature_F",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+        	"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+    	    }
+        },
+	"humidity": {
+	    "name": "humidity",
+	    "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+        	"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+        },
+        "target_C": {
+	    "name": "target_C",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+    		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+        },
+	"target_F": {
+            "name": "target_F",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+        	"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+        },
+	"away_low_C": {
+            "name": "away_low_C",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+    		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+	},
+        "away_low_F": {
+            "name": "away_low_F",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+    		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+        },
+	"away_high_C": {
+	    "name": "away_high_C",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+    		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+	},
+	"hvac_ac_state": {
+    	    "name": "hvac_ac_state",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+    		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+        },
+        "hvac_cool_x2_state": {
+            "name": "hvac_cool_x2_state",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+    		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+        },
+        "hvac_heater_state": {
+            "name": "hvac_heater_state",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+    		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+	},
+        "hvac_aux_heater_state": {
+            "name": "hvac_aux_heater_state",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+        	"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+        },
+        "hvac_heat_x2_state": {
+    	    "name": "hvac_heat_x2_state",
+	    "data_type": "DT_String",
+	    "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+	},
+        "hvac_heat_x3_state": {
+            "name": "hvac_heat_x3_state",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+        },
+	"hvac_alt_heat_state": {
+            "name": "hvac_alt_heat_state",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+    	    }
+        },
+        "hvac_alt_heat_x2_state": {
+	    "name": "hvac_alt_heat_x2_state",
+	    "data_type": "DT_String",
+    	    "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+        	"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+        }
+    },
+    "hvac_emer_heat_state": {
+        "name": "hvac_emer_heat_state",
+        "data_type": "DT_String",
+        "conversion": "",
+        "incremental": false,
+        "timeout": 0,
+        "history": {
+	"store": true,
+	"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+        }
+    },
+    "online": {
+        "name": "online",
+        "data_type": "DT_String",
+        "conversion": "",
+        "incremental": false,
+        "timeout": 0,
+        "history": {
+	"store": true,
+	"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+        }
+    },
+    "battery_level": {
+        "name": "battery_level",
+        "data_type": "DT_String",
+        "conversion": "",
+        "incremental": false,
+        "timeout": 0,
+        "history": {
+	"store": true,
+	"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+        }
+    }
     },
     "xpl_stats": {},
     "device_types": {
