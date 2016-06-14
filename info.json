@@ -1185,50 +1185,49 @@
                 "expire": 0,
                 "round_value": 0
 	    }
-        }
-    },
-    "hvac_emer_heat_state": {
-        "name": "hvac_emer_heat_state",
-        "data_type": "DT_String",
-        "conversion": "",
-        "incremental": false,
-        "timeout": 0,
-        "history": {
-	"store": true,
-	"duplicate": false,
+        },
+        "hvac_emer_heat_state": {
+	    "name": "hvac_emer_heat_state",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+        	"store": true,
+		"duplicate": false,
                 "max": 0,
                 "expire": 0,
                 "round_value": 0
-        }
-    },
-    "online": {
-        "name": "online",
-        "data_type": "DT_String",
-        "conversion": "",
-        "incremental": false,
-        "timeout": 0,
-        "history": {
-	"store": true,
-	"duplicate": false,
+            }
+        },
+        "online": {
+            "name": "online",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+        	"duplicate": false,
                 "max": 0,
                 "expire": 0,
                 "round_value": 0
-        }
-    },
-    "battery_level": {
-        "name": "battery_level",
-        "data_type": "DT_String",
-        "conversion": "",
-        "incremental": false,
-        "timeout": 0,
-        "history": {
-	"store": true,
-	"duplicate": false,
+	    }
+        },
+	"battery_level": {
+            "name": "battery_level",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+		"store": true,
+		"duplicate": false,
                 "max": 0,
                 "expire": 0,
                 "round_value": 0
+            }
         }
-    }
     },
     "xpl_stats": {},
     "device_types": {
