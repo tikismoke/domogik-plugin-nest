@@ -1074,6 +1074,20 @@
                 "round_value": 0
             }
 	},
+	"away_high_F": {
+	    "name": "away_high_F",
+            "data_type": "DT_String",
+            "conversion": "",
+            "incremental": false,
+            "timeout": 0,
+            "history": {
+    		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+            }
+	},
 	"hvac_ac_state": {
     	    "name": "hvac_ac_state",
             "data_type": "DT_String",
