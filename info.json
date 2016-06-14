@@ -888,7 +888,7 @@
 	    "commands": [],
 	    "sensors": ["measurement", "name", "where", "serial", "product_id", "auto_away", "battery_level", "co_blame_duration", "co_blame_threshold", "co_previous_peak", "co_status", "smoke_status", "component_als_test_passed",  "component_co_test_passed", "component_heat_test_passed", "component_hum_test_passed", "component_led_test_passed", "component_pir_test_passed", "component_smoke_test_passed", "component_temp_test_passed", "component_us_test_passed", "component_wifi_test_passed", "gesture_hush_enable", "heads_up_enable", "home_alarm_link_capable", "home_alarm_link_connected", "hushed_state", "latest_manual_test_cancelled", "line_power_present", "night_light_continuous", "night_light_enable", "ntp_green_led_enable", "steam_detection_enable", "wired_led_enable", "description", "software_version", "wifi_ip_address", "wifi_mac_address", "thread_mac_address", "battery_health_state", "capability_level", "certification_body", "creation_time", "home_alarm_link_type", "latest_manual_test_end_utc_secs", "latest_manual_test_start_utc_secs", "replace_by_date_utc_secs", "co_sequence_number", "smoke_sequence_number", "wired_or_battery"],
 	    "parameters": [{
-		"key": "Serial",
+		"key": "serial",
 		"xpl": false,
 		"description": "Serial of the protect",
 		"type": "string"
@@ -901,7 +901,7 @@
 	    "commands": [],
 	    "sensors": ["name"],
 	    "parameters": [{
-		"key": "Serial",
+		"key": "serial",
 		"xpl": false,
 		"description": "Serial of the thermostat",
 		"type": "string"
@@ -914,7 +914,7 @@
 	    "commands": [],
 	    "sensors": ["name", "postal_code", "country_code", "house_type", "renovation_date", "measurement_scale", "emergency_contact_type", "emergency_contact_description", "emergency_contact_phone", "structure_area_m2", "away"],
 	    "parameters": [{
-		"key": "Name",
+		"key": "name",
 		"xpl": false,
 		"description": "Name of the house",
 		"type": "string"

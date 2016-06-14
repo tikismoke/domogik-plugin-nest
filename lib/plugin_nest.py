@@ -87,25 +87,27 @@ class NESTclass:
         try:
             # Loop through Nest structures aka homes
             for structure in self.napi.structures:
+                self._log.debug("Reading for name: '%s' " % name)
                 self._log.debug("Strucutre: '%s' " % structure)
 		event = self.mapStructure(structure)
-                self._log.debug("Event data: '%s' " % event)
-		if name== structure.name:
+                self._log.debug("strucutre data: '%s' " % event)
+		if name == structure.name:
 		    return event
                 # Loop through all Thermostats
                 for thermostat in structure.devices:
                     self._log.debug("thermostat name: '%s' " % thermostat.name)
                     event = self.mapThermostat(thermostat)
-                    self._log.debug("Event data: '%s' " % event)
-		    if name== thermostat.name:
+                    self._log.debug("thermostat data: '%s' " % event)
+		    if name == thermostat.name:
 			return event
                 # Loop through all Protects
                 for protect in structure.protectdevices:
                     self._log.debug("protect name: '%s' " % protect.name)
                     event = self.mapProtect(protect)
-                    self._log.debug("Event data: '%s' " % event)
-		    if name== protect.name:
+                    self._log.debug("protect data: '%s' " % event)
+		    if name == protect.name:
 			return event
+	    return "failed"
 
         except AttributeError:
             self._log.error(u"### Sensor '%s', ERROR while reading value." % sensor)
