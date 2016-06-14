@@ -1249,7 +1249,7 @@
 	    "description": "Learning Thermostat",
 	    "name": "Nest thermostat",
 	    "commands": [],
-	    "sensors": ["name"],
+	    "sensors": ["measurement", "name", "where", "serial", "last_ip", "local_ip", "mode", "last_connection", "error_code", "fan", "temperature_C", "temperature_F", "humidity", "target_C", "target_F", "away_low_C", "away_low_F", "away_high_C", "away_high_F", "hvac_ac_state", "hvac_cool_x2_state", "hvac_heater_state", "hvac_aux_heater_state", "hvac_heat_x2_state", "hvac_heat_x3_state", "hvac_alt_heat_state", "hvac_alt_heat_x2_state", "hvac_emer_heat_state", "online", "battery_level"],
 	    "parameters": [{
 		"key": "serial",
 		"xpl": false,
