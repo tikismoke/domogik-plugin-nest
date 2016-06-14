@@ -89,25 +89,23 @@ class NESTclass:
             for structure in self.napi.structures:
                 self._log.debug("Strucutre: '%s' " % structure)
 		event = self.mapStructure(structure)
-	        self._log.debug("Event data: '%s' " % event)
-                if name == structure.name:
-		    self._log.debug("Event data: '%s' " % event)
+                self._log.debug("Event data: '%s' " % event)
+		if name== structure.name:
 		    return event
-		# Loop through all Thermostats
+                # Loop through all Thermostats
                 for thermostat in structure.devices:
                     self._log.debug("thermostat name: '%s' " % thermostat.name)
                     event = self.mapThermostat(thermostat)
-		    if name == thermostat.name:
-                        self._log.debug("Event data: '%s' " % event)
+                    self._log.debug("Event data: '%s' " % event)
+		    if name== thermostat.name:
 			return event
                 # Loop through all Protects
                 for protect in structure.protectdevices:
                     self._log.debug("protect name: '%s' " % protect.name)
                     event = self.mapProtect(protect)
-		    if name == protect.name:
-                        self._log.debug("Event data: '%s' " % event)
+                    self._log.debug("Event data: '%s' " % event)
+		    if name== protect.name:
 			return event
-	    return "failed"
 
         except AttributeError:
             self._log.error(u"### Sensor '%s', ERROR while reading value." % sensor)
@@ -135,7 +133,6 @@ class NESTclass:
     def loop_read_sensor(self, deviceid, device, name, send, stop):
         """
         """
-        self._log.debug(u"==>This thread is for device '{0}' ".format(name))
         while not stop.isSet():
 	    self.napi = nest.Nest(self.user, self.password)
             val = self.readNestApi(name)
