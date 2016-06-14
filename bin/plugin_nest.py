@@ -89,37 +89,33 @@ class nestManager(Plugin):
         for a_device in self.devices:
             self.log.info(u"a_device:   %s" % format(a_device))
 
-	    try:
-                device_name = a_device["name"]
-	    except:
-		device_name = a_device["serial"]
+            device_name =  a_device["name"]
             device_id = a_device["id"]
             device_type = a_device["device_type_id"]
-            sensor_name = self.get_parameter(a_device, "name")
+	    if device_type == "nest.home":
+                sensor_name = self.get_parameter(a_device, "name")
+	    else:
+		sensor_name = self.get_parameter(a_device, "serial")
             self.device_list.update({device_id : {'name': device_name, 'named': sensor_name}})
 
-            if device_type != "nest.":
-                self.log.info(u"==> Device '{0}' (id:{1}/{2}), name = {3}".format(device_name, device_id, device_type, sensor_name))
-                self.log.debug(u"==> Sensor list of device '{0}': '{1}'".format(device_id, self.sensors[device_id]))
+            self.log.info(u"==> Device '{0}' (id:{1}/{2}), name = {3}".format(device_name, device_id, device_type, sensor_name))
+            self.log.debug(u"==> Sensor list of device '{0}': '{1}'".format(device_id, self.sensors[device_id]))
 
-                self.log.debug(u"==> Launch reading thread for '%s' device !" % device_name)
-                thr_name = "dev_{0}".format(device_id)
-                threads[thr_name] = threading.Thread(None,
-                                                        self.NESTclass.loop_read_sensor,
-                                                        thr_name,
-                                                            (device_id,
-                                                            device_name,
-                                                            sensor_name,
-                                                            self.send_pub_data,
-                                                            self.get_stop()),
-                                                        {})
-                threads[thr_name].start()
-                self.register_thread(threads[thr_name])
-                self.log.info(u"==> Wait some time before running the next scheduled threads ...")
-                time.sleep(5)        # Wait some time to not start the threads with the same interval et the same time.
-
-            else:
-                self.log.info(u"==> Device '{0}' (id:{1}/{2}), ".format(device_name, device_id, device_type))
+            self.log.debug(u"==> Launch reading thread for '%s' device !" % device_name)
+            thr_name = "dev_{0}".format(device_id)
+            threads[thr_name] = threading.Thread(None,
+                                                    self.NESTclass.loop_read_sensor,
+                                                    thr_name,
+                                                        (device_id,
+                                                        device_name,
+                                                        sensor_name,
+                                                        self.send_pub_data,
+                                                        self.get_stop()),
+                                                    {})
+            threads[thr_name].start()
+            self.register_thread(threads[thr_name])
+            self.log.info(u"==> Wait some time before running the next scheduled threads ...")
+            time.sleep(5)        # Wait some time to not start the threads with the same interval et the same time.
 
         self.ready()
 
