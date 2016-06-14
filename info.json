@@ -186,7 +186,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"name": {
@@ -197,7 +200,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"where": {
@@ -208,7 +214,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"serial": {
@@ -220,6 +229,9 @@
 	    "history": {
 		"store": true,
 		"duplicate": false
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"product_id": {
@@ -230,7 +242,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"auto_away": {
@@ -241,7 +256,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"battery_level": {
@@ -252,7 +270,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"co_blame_duration": {
@@ -263,7 +284,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"co_blame_threshold": {
@@ -274,7 +298,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"co_previous_peak": {
@@ -285,7 +312,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"co_status": {
@@ -296,7 +326,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"smoke_status": {
@@ -307,7 +340,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"component_als_test_passed": {
@@ -318,7 +354,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"component_co_test_passed": {
@@ -329,7 +368,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"component_heat_test_passed": {
@@ -340,7 +382,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"component_hum_test_passed": {
@@ -351,7 +396,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"component_led_test_passed": {
@@ -362,7 +410,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"component_pir_test_passed": {
@@ -373,7 +424,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"component_smoke_test_passed": {
@@ -384,7 +438,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"component_temp_test_passed": {
@@ -395,7 +452,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"component_us_test_passed": {
@@ -406,7 +466,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"component_wifi_test_passed": {
@@ -417,7 +480,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"gesture_hush_enable": {
@@ -428,7 +494,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"heads_up_enable": {
@@ -439,7 +508,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"home_alarm_link_capable": {
@@ -450,7 +522,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"home_alarm_link_connected": {
@@ -461,7 +536,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"hushed_state": {
@@ -472,7 +550,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"latest_manual_test_cancelled": {
@@ -483,7 +564,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"line_power_present": {
@@ -494,7 +578,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"night_light_continuous": {
@@ -505,7 +592,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"night_light_enable": {
@@ -516,7 +606,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"ntp_green_led_enable": {
@@ -527,7 +620,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"steam_detection_enable": {
@@ -538,7 +634,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"wired_led_enable": {
@@ -549,7 +648,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"description": {
@@ -560,7 +662,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"software_version": {
@@ -571,7 +676,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"wifi_ip_address": {
@@ -582,7 +690,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"wifi_mac_address": {
@@ -593,7 +704,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"thread_mac_address": {
@@ -604,7 +718,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"battery_health_state": {
@@ -615,7 +732,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"capability_level": {
@@ -626,7 +746,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"certification_body": {
@@ -637,7 +760,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"creation_time": {
@@ -648,7 +774,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"home_alarm_link_type": {
@@ -659,7 +788,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"latest_manual_test_end_utc_secs": {
@@ -670,7 +802,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"latest_manual_test_start_utc_secs": {
@@ -681,7 +816,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"replace_by_date_utc_secs": {
@@ -692,7 +830,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"co_sequence_number": {
@@ -703,7 +844,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"smoke_sequence_number": {
@@ -714,7 +858,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	},
 	"wired_or_battery": {
@@ -725,7 +872,10 @@
 	    "timeout": 0,
 	    "history": {
 		"store": true,
-		"duplicate": false
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
 	    }
 	}
     },
