@@ -1,4 +1,4 @@
-# Domogik Plugin plugin_nest
+# Domogik Plugin plugin_nestdevice
 
 ## Purpose
 
