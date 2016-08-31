@@ -166,8 +166,8 @@
 	},
 	"away": {
 	    "name": "away",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
