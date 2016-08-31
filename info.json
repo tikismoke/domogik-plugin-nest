@@ -250,8 +250,8 @@
 	},
 	"auto_away": {
 	    "name": "auto_away",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -348,8 +348,8 @@
 	},
 	"component_als_test_passed": {
 	    "name": "component_als_test_passed",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -362,8 +362,8 @@
 	},
 	"component_co_test_passed": {
 	    "name": "component_co_test_passed",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -376,8 +376,8 @@
 	},
 	"component_heat_test_passed": {
 	    "name": "component_heat_test_passed",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -390,8 +390,8 @@
 	},
 	"component_hum_test_passed": {
 	    "name": "component_hum_test_passed",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -404,8 +404,8 @@
 	},
 	"component_led_test_passed": {
 	    "name": "component_led_test_passed",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -418,8 +418,8 @@
 	},
 	"component_pir_test_passed": {
 	    "name": "component_pir_test_passed",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -432,8 +432,8 @@
 	},
 	"component_smoke_test_passed": {
 	    "name": "component_smoke_test_passed",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -446,8 +446,8 @@
 	},
 	"component_temp_test_passed": {
 	    "name": "component_temp_test_passed",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -460,8 +460,8 @@
 	},
 	"component_us_test_passed": {
 	    "name": "component_us_test_passed",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -474,8 +474,8 @@
 	},
 	"component_wifi_test_passed": {
 	    "name": "component_wifi_test_passed",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -488,8 +488,8 @@
 	},
 	"gesture_hush_enable": {
 	    "name": "gesture_hush_enable",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -502,8 +502,8 @@
 	},
 	"heads_up_enable": {
 	    "name": "heads_up_enable",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -516,8 +516,8 @@
 	},
 	"home_alarm_link_capable": {
 	    "name": "home_alarm_link_capable",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -530,8 +530,8 @@
 	},
 	"home_alarm_link_connected": {
 	    "name": "home_alarm_link_connected",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -544,8 +544,8 @@
 	},
 	"hushed_state": {
 	    "name": "hushed_state",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -558,8 +558,8 @@
 	},
 	"latest_manual_test_cancelled": {
 	    "name": "latest_manual_test_cancelled",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -572,8 +572,8 @@
 	},
 	"line_power_present": {
 	    "name": "line_power_present",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -586,8 +586,8 @@
 	},
 	"night_light_continuous": {
 	    "name": "night_light_continuous",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -600,8 +600,8 @@
 	},
 	"night_light_enable": {
 	    "name": "night_light_enable",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -614,8 +614,8 @@
 	},
 	"ntp_green_led_enable": {
 	    "name": "ntp_green_led_enable",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -628,8 +628,8 @@
 	},
 	"steam_detection_enable": {
 	    "name": "steam_detection_enable",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -642,8 +642,8 @@
 	},
 	"wired_led_enable": {
 	    "name": "wired_led_enable",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {

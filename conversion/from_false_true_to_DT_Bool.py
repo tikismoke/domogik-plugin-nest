@@ -4,4 +4,3 @@ def from_false_true_to_DT_Bool(x):
         return 0
     else:
         return 1
-
