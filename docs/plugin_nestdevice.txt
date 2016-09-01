@@ -2,7 +2,7 @@
 Plugin documentation
 ====================
 
-.. |icon| image:: icon.png
+.. |icon| image:: ../design/icon.png
     :width: 64px
 
 |icon|
