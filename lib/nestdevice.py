@@ -95,12 +95,14 @@ class NESTclass:
                 self._log.debug("strucutre data: '%s' " % event)
 		if name == structure.name:
 		    return event
+		#list device
+                self._log.debug("structure.devices: '%s' " % structure.devices)
                 # Loop through all Thermostats
                 for thermostat in structure.devices:
                     self._log.debug("thermostat name: '%s' " % thermostat.name)
                     event = self.mapThermostat(thermostat)
                     self._log.debug("thermostat data: '%s' " % event)
-		    if name == thermostat.name:
+		    if name == thermostat.serial:
 			return event
                 # Loop through all Protects
                 for protect in structure.protectdevices:
@@ -223,44 +225,45 @@ class NESTclass:
     
         return event
 
-    def mapThermostat(thermostat):
+    def mapThermostat(self, thermostat):
 	if thermostat.away_temperature[1] is not None:
     	    away_tempC = (float)('%0.1f' % thermostat.away_temperature[1])
 	    away_tempF = (float)('%0.1f' % CtoF(thermostat.away_temperature[1]))
         else:
 	    away_tempC = 'Null'
     	    away_tempF = 'Null'
-
+	if thermostat.target is not None:
+            self._log.error(u"### Target= %s " % thermostat.target)
         event = {
 	    'measurement': 'nest.thermostat',
             'name': thermostat.name,
             'where': thermostat.where,
             'serial': thermostat.serial,
-            'last_ip': thermostat.last_ip,
+#            'last_ip': thermostat.last_ip,
             'local_ip': thermostat.local_ip,
             'mode': thermostat.mode,
-            'last_connection': epoch2date(thermostat.last_connection/1000),
+#            'last_connection': self.epoch2date(thermostat.last_connection/1000),
             'error_code': thermostat.error_code,
-            'fan': boolify(thermostat.fan),
+            'fan': self.boolify(thermostat.fan),
             'temperature_C': (float)('%0.1f' % thermostat.temperature),
-            'temperature_F': (float)('%0.1f' % CtoF(thermostat.temperature)),
+            'temperature_F': (float)('%0.1f' % self.CtoF(thermostat.temperature)),
             'humidity': thermostat.humidity,
-            'target_C': (float)('%0.1f' % thermostat.target),
-            'target_F': (float)('%0.1f' % CtoF(thermostat.target)),
+	    'target_C': (float)('%0.1f' % thermostat.target),
+            'target_F': (float)('%0.1f' % self.CtoF(thermostat.target)),
             'away_low_C': (float)('%0.1f' % thermostat.away_temperature[0]),
-            'away_low_F': (float)('%0.1f' % CtoF(thermostat.away_temperature[0])),  # noqa
+            'away_low_F': (float)('%0.1f' % self.CtoF(thermostat.away_temperature[0])),  # noqa
             'away_high_C': away_tempC,
             'away_high_F': away_tempF,
-            'hvac_ac_state': boolify(thermostat.hvac_ac_state),
-            'hvac_cool_x2_state': boolify(thermostat.hvac_cool_x2_state),
-            'hvac_heater_state': boolify(thermostat.hvac_heater_state),
-            'hvac_aux_heater_state': boolify(thermostat.hvac_aux_heater_state),
-            'hvac_heat_x2_state': boolify(thermostat.hvac_heat_x2_state),
-            'hvac_heat_x3_state': boolify(thermostat.hvac_heat_x3_state),
-            'hvac_alt_heat_state': boolify(thermostat.hvac_alt_heat_state),
-            'hvac_alt_heat_x2_state': boolify(thermostat.hvac_alt_heat_x2_state),  # noqa
-            'hvac_emer_heat_state': boolify(thermostat.hvac_emer_heat_state),
-            'online': boolify(thermostat.online),
+            'hvac_ac_state': self.boolify(thermostat.hvac_ac_state),
+            'hvac_cool_x2_state': self.boolify(thermostat.hvac_cool_x2_state),
+            'hvac_heater_state': self.boolify(thermostat.hvac_heater_state),
+            'hvac_aux_heater_state': self.boolify(thermostat.hvac_aux_heater_state),
+            'hvac_heat_x2_state': self.boolify(thermostat.hvac_heat_x2_state),
+            'hvac_heat_x3_state': self.boolify(thermostat.hvac_heat_x3_state),
+            'hvac_alt_heat_state': self.boolify(thermostat.hvac_alt_heat_state),
+            'hvac_alt_heat_x2_state': self.boolify(thermostat.hvac_alt_heat_x2_state),  # noqa
+            'hvac_emer_heat_state': self.boolify(thermostat.hvac_emer_heat_state),
+            'online': self.boolify(thermostat.online),
             'battery_level': float(thermostat.battery_level)
         }
 

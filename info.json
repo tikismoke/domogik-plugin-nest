@@ -950,8 +950,8 @@
         },
 	"fan": {
     	    "name": "fan",
-            "data_type": "DT_String",
-            "conversion": "",
+            "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
             "timeout": 0,
             "history": {
@@ -1090,8 +1090,8 @@
 	},
 	"hvac_ac_state": {
     	    "name": "hvac_ac_state",
-            "data_type": "DT_String",
-            "conversion": "",
+            "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
             "timeout": 0,
             "history": {
@@ -1104,8 +1104,8 @@
         },
         "hvac_cool_x2_state": {
             "name": "hvac_cool_x2_state",
-            "data_type": "DT_String",
-            "conversion": "",
+            "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
             "timeout": 0,
             "history": {
@@ -1118,8 +1118,8 @@
         },
         "hvac_heater_state": {
             "name": "hvac_heater_state",
-            "data_type": "DT_String",
-            "conversion": "",
+            "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
             "timeout": 0,
             "history": {
@@ -1132,8 +1132,8 @@
 	},
         "hvac_aux_heater_state": {
             "name": "hvac_aux_heater_state",
-            "data_type": "DT_String",
-            "conversion": "",
+            "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
             "timeout": 0,
             "history": {
@@ -1146,8 +1146,8 @@
         },
         "hvac_heat_x2_state": {
     	    "name": "hvac_heat_x2_state",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
             "timeout": 0,
             "history": {
@@ -1160,8 +1160,8 @@
 	},
         "hvac_heat_x3_state": {
             "name": "hvac_heat_x3_state",
-            "data_type": "DT_String",
-            "conversion": "",
+            "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
             "timeout": 0,
             "history": {
@@ -1174,8 +1174,8 @@
         },
 	"hvac_alt_heat_state": {
             "name": "hvac_alt_heat_state",
-            "data_type": "DT_String",
-            "conversion": "",
+            "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
             "timeout": 0,
             "history": {
@@ -1188,8 +1188,8 @@
         },
         "hvac_alt_heat_x2_state": {
 	    "name": "hvac_alt_heat_x2_state",
-	    "data_type": "DT_String",
-    	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
             "timeout": 0,
             "history": {
@@ -1202,8 +1202,8 @@
         },
         "hvac_emer_heat_state": {
 	    "name": "hvac_emer_heat_state",
-            "data_type": "DT_String",
-            "conversion": "",
+            "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
             "timeout": 0,
             "history": {
@@ -1216,8 +1216,8 @@
         },
         "online": {
             "name": "online",
-            "data_type": "DT_String",
-            "conversion": "",
+            "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
             "timeout": 0,
             "history": {
@@ -1263,7 +1263,7 @@
 	    "description": "Learning Thermostat",
 	    "name": "Nest thermostat",
 	    "commands": [],
-	    "sensors": ["measurement", "name", "where", "serial", "last_ip", "local_ip", "mode", "last_connection", "error_code", "fan", "temperature_C", "temperature_F", "humidity", "target_C", "target_F", "away_low_C", "away_low_F", "away_high_C", "away_high_F", "hvac_ac_state", "hvac_cool_x2_state", "hvac_heater_state", "hvac_aux_heater_state", "hvac_heat_x2_state", "hvac_heat_x3_state", "hvac_alt_heat_state", "hvac_alt_heat_x2_state", "hvac_emer_heat_state", "online", "battery_level"],
+	    "sensors": ["measurement", "name", "where", "serial", "local_ip", "mode", "error_code", "fan", "temperature_C", "temperature_F", "humidity", "target_C", "target_F", "away_low_C", "away_low_F", "away_high_C", "away_high_F", "hvac_ac_state", "hvac_cool_x2_state", "hvac_heater_state", "hvac_aux_heater_state", "hvac_heat_x2_state", "hvac_heat_x3_state", "hvac_alt_heat_state", "hvac_alt_heat_x2_state", "hvac_emer_heat_state", "online", "battery_level"],
 	    "parameters": [{
 		"key": "serial",
 		"xpl": false,
