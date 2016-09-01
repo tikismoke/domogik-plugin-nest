@@ -1293,7 +1293,7 @@
 	    "id": "python-nest (>=2.8.0)",
 	    "type": "python"
 	}],
-	"description": "Plugin for nest protect and thermostatmostat",
+	"description": "Plugin for nest protect and thermostat",
 	"domogik_min_version": "0.5.0",
 	"name": "nestdevice",
 	"type": "plugin",
