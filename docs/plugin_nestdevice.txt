@@ -1,71 +1,78 @@
-.. _index:
+====================
+Plugin documentation
+====================
 
-===================
-Plugin plugin_nest
-===================
+.. |icon| image:: icon.png
+    :width: 64px
+
+|icon|
+
+Last change
+===========
+
+- `Previous change <changelog.html>`_
 
 Purpose
 =======
+This Domogik plugin NestDevices allow user to see all informations from nest API (House/Protect/Thermostat). For now thermostats commands are not available like home/away commands.
 
-.. raw:: html
 
-   <br />
-   <hr>
-
-Dependencies
-============
-
-.. raw:: html
-
-   <br />
-   <hr>
 
 Plugin configuration
 ====================
+Configuration
+-------------
+In Domogik administration section, go to client plugin-notify details page.
 
-.. raw:: html
-
-   <br />
-   <hr>
-
-Create the devices
-==================
-
-Device parameters configuration
--------------------------------
-
-X parameters are needed for a domogik device creation ...
-
-
-===================== =========================== ======================================================================
-Key                   Type                        Description
-===================== =========================== ======================================================================
-key1                  datatype                    ...
---------------------- --------------------------- ----------------------------------------------------------------------
-key2                  datatype                    ...
-===================== =========================== ======================================================================
++----------------+----------------------+-------------------------------------------------------------------------------+
+|Key             | Default value        | Description                                                                   |
++================+======================+===============================================================================+
+| startup-plugin | false                | Automatically start plugin at Domogik startup                                 |
++----------------+----------------------+-------------------------------------------------------------------------------+
+| email address  |                      | Your Nest.com account mail address                                            |
++----------------+----------------------+-------------------------------------------------------------------------------+
+| password       | false                | Your Nest.com account password                                                |
++----------------+----------------------+-------------------------------------------------------------------------------+
+| period         | 300                  | Refresh period from NEST API platform in seconds                              |
++----------------+----------------------+-------------------------------------------------------------------------------+
 
 
-.. raw:: html
+Creating devices for nest device
+--------------------------------
+In clients page of admin UI, go to **plugin-nestdevice-<your_host_domogik>**, select tab **"Devices"**, **"New"** to create your devices.
 
-   <br />
-   <hr>
+Chose one way creation by product or device type.
 
-Start the plugin
-================
+device_types : home
+*******************
 
-You can now start the plugin (start button) and use the created devices.
++-------------------+-------------------+------------------------------------------------------------------------------+
+| Key               | Example           | Description                                                                  |
++===================+===================+==============================================================================+
+| Device            | my Home           | The display name for this device.                                            |
++-------------------+-------------------+------------------------------------------------------------------------------+
+| Description       | What you want     | A short description for this device.                                         |
++-------------------+-------------------+------------------------------------------------------------------------------+
+| Reference         | What you want     | A Reference for this device.                                                 |
++-------------------+-------------------+------------------------------------------------------------------------------+
 
-.. raw:: html
++-------------------+-------------------+------------------------------------------------------------------------------+
+| name              | name of the house | Should be the name of the house as defined in your nest account              |
++-------------------+-------------------+------------------------------------------------------------------------------+
 
-   <br />
-   <hr>
+device_types : protect and thermostat
+*************************************
 
-Set up your widgets on the user interface
-=========================================
++-------------------+-------------------+------------------------------------------------------------------------------+
+| Key               | Example           | Description                                                                  |
++===================+===================+==============================================================================+
+| Device            | my Home           | The display name for this device.                                            |
++-------------------+-------------------+------------------------------------------------------------------------------+
+| Description       | What you want     | A short description for this device.                                         |
++-------------------+-------------------+------------------------------------------------------------------------------+
+| Reference         | What you want     | A Reference for this device.                                                 |
++-------------------+-------------------+------------------------------------------------------------------------------+
 
-You can now place the widgets of your devices features on the user interface.
-
-.. raw:: html
-
-   <br />
++-------------------+-------------------+------------------------------------------------------------------------------+
+| serial            | serial number     | Serial of the device, it's available in nest url page of the device          |
++-------------------+-------------------+------------------------------------------------------------------------------+

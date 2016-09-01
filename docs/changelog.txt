@@ -6,3 +6,5 @@ Changelog
 ===
 
 * Plugin creation
+* Todo add command for thermostat when a user could help debugging it.
+* Todo add device autodiscovering.
