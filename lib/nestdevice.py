@@ -119,14 +119,23 @@ class NESTclass:
 
 
     # -------------------------------------------------------------------------------------------------
-    def writeSensor(self, pin, value):
+    def writeState(self, name, value):
         """
-            Write GPIO 'pin' with 'value'
+            Write nest device 'name' with 'value'
         """
+
+	self._log.debug(u"==> Receive writeState command for '%s'" % name)
+	self._log.debug(u"==> And value '%s'" % value)
+
         try:
-            GPIO.setup(int(pin), GPIO.OUT)
-            self._log.info(u"==> Writing output '%s'" % pin)
-            GPIO.output(int(pin), int(value))
+            for structure in self.napi.structures:
+		if name == structure.name:
+	    	    if str(value)=="1":
+			structure.away = "away"
+		    else:
+			structure.away = "home"
+		    self._log.info(u"Writing away state of '%s' to '%s'" % (name, structure.away))
+
         except AttributeError:
             errorstr = u"### Sensor '%s', ERROR while writing value." % pin
             self._log.error(errorstr)

@@ -21,7 +21,19 @@
 	"default": "600",
 	"type": "integer"
     }],
-    "commands": {},
+    "commands": {
+        "set_away" : {
+            "name" : "Set Away",
+            "return_confirmation" : true,
+            "parameters" : [
+                {
+                    "key" : "away",
+                    "data_type" : "DT_Bool",
+                    "conversion" : "" 
+                }
+            ]
+	}
+    },
     "xpl_commands": {},
     "sensors": {
 	"name": {
@@ -1259,7 +1271,7 @@
 	    }]
 	},
 	"nest.thermostat": {
-	    "id": "gpio.input",
+	    "id": "nest.thermostat",
 	    "description": "Learning Thermostat",
 	    "name": "Nest thermostat",
 	    "commands": [],
@@ -1275,7 +1287,7 @@
 	    "id": "nest.home",
 	    "description": "House description",
 	    "name": "Nest home",
-	    "commands": [],
+	    "commands": ["set_away"],
 	    "sensors": ["name", "postal_code", "country_code", "house_type", "renovation_date", "measurement_scale", "emergency_contact_type", "emergency_contact_description", "emergency_contact_phone", "structure_area_m2", "away"],
 	    "parameters": [{
 		"key": "name",

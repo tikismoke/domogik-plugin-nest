@@ -122,13 +122,14 @@ class nestManager(Plugin):
     def send_pub_data(self, device_id, value):
         """ Send the sensors values over MQ
         """
+        self.log.debug(u"send_pub_data : '%s' for device_id: '%s' " % (value, device_id))
         data = {}
         value_dumps= json.dumps(value)
 	value_dict = json.loads(value_dumps)
         for sensor in self.sensors[device_id]:
             self.log.debug(u"value receive : '%s' for sensors: '%s' " % (value_dict[sensor], sensor))
             data[self.sensors[device_id][sensor]] = value_dict[sensor]
-#        self.log.debug(u"==> Update Sensor '%s' for device id %s (%s)" % (format(data), device_id, self.device_list[device_id]["name"]))    # {u'id': u'value'}
+        self.log.debug(u"==> Update Sensor '%s' for device id %s (%s)" % (format(data), device_id, self.device_list[device_id]["name"]))    # {u'id': u'value'}
 
         try:
             self._pub.send_event('client.sensor', data)
@@ -154,16 +155,26 @@ class nestManager(Plugin):
             if device_id not in self.device_list:
                 self.log.error(u"### MQ REQ command, Device ID '%s' unknown, Have you restarted the plugin after device creation ?" % device_id)
                 status = False
-                reason = u"Plugin rpigpio: Unknown device ID %d" % device_id
+                reason = u"Plugin nestdevice: Unknown device ID %d" % device_id
                 self.send_rep_ack(status, reason, command_id, "unknown") ;
                 return
 
             device_name = self.device_list[device_id]["name"]
             self.log.info(u"==> Received for device '%s' MQ REQ command message: %s" % (device_name, format(data)))
+	    for a_device in self.devices:
+    		if a_device["id"] == device_id:
+		    if a_device["device_type_id"] == "nest.home":
+            		sensor_name = self.get_parameter(a_device, "name")
+#This should be eaisier but not available
+#	    sensor_name = self.get_parameter(self.device_list[device_id], "name")
+#
+	    self.log.info(u"==> Received for sensor name '%s' MQ REQ command message: %s" % (sensor_name, format(data)))
+            status, reason = self.NESTclass.writeState(sensor_name, data["away"])
 
-            status, reason = self.GPIOclass.writeSensor(self.device_list[device_id]["pin"], data["level"])
-            if status:
-                self.send_pub_data(device_id, data["level"])
+# TODO return status by calling back for good sensors
+#            if status:
+#                self.send_pub_data(device_id, format(data))
+#                self.send_pub_data(device_id, data["away"])
 
             self.send_rep_ack(status, reason, command_id, device_name) ;
 
