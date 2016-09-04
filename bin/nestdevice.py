@@ -165,11 +165,17 @@ class nestManager(Plugin):
     		if a_device["id"] == device_id:
 		    if a_device["device_type_id"] == "nest.home":
             		sensor_name = self.get_parameter(a_device, "name")
+		        self.log.info(u"==> Received for nest name or serial '%s' MQ REQ command message: %s" % (sensor_name, format(data)))
+		        status, reason = self.NESTclass.writeState(sensor_name, "away", data["away"])
+		    elif a_device["device_type_id"] == "nest.thermostat":
+            		sensor_name = self.get_parameter(a_device, "serial")
+		        self.log.info(u"==> Received for nest name or serial '%s' MQ REQ command message: %s" % (sensor_name, format(data)))
+		        status, reason = self.NESTclass.writeState(sensor_name, "temperature", data["temperature"])
+
 #This should be eaisier but not available
 #	    sensor_name = self.get_parameter(self.device_list[device_id], "name")
 #
-	    self.log.info(u"==> Received for sensor name '%s' MQ REQ command message: %s" % (sensor_name, format(data)))
-            status, reason = self.NESTclass.writeState(sensor_name, data["away"])
+
 
 # TODO return status by calling back for good sensors
 #            if status:

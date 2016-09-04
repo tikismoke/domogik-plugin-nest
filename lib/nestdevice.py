@@ -119,7 +119,7 @@ class NESTclass:
 
 
     # -------------------------------------------------------------------------------------------------
-    def writeState(self, name, value):
+    def writeState(self, name, command, value):
         """
             Write nest device 'name' with 'value'
         """
@@ -129,12 +129,27 @@ class NESTclass:
 
         try:
             for structure in self.napi.structures:
-		if name == structure.name:
-	    	    if str(value)=="1":
-			structure.away = "away"
-		    else:
-			structure.away = "home"
-		    self._log.info(u"Writing away state of '%s' to '%s'" % (name, structure.away))
+	        if command == "away":
+    		    if name == structure.name:
+	    		if str(value)=="1":
+			    structure.away = "away"
+		        else:
+			    structure.away = "home"
+			self._log.info(u"Writing away state of '%s' to '%s'" % (name, structure.away))
+		elif command == "temperature":
+            	    for thermostat in structure.devices:
+    			if name == thermostat.serial:
+			    if thermostat.mode != "range":
+			        if int(value) > 32:
+				    thermostat.target = 32
+			        elif int(value) < 9 :
+				    thermostat.target = 9
+				else:
+				    thermostat.target = int(value)
+				self._log.info(u"Writing target temp of '%s' to '%s'" % (name, thermostat.target))
+			    else:
+				self._log.warning(u"Settings temperature when mode is set to heat-cool is not implement yet!!!!")
+#Todo find a way to handle this case
 
         except AttributeError:
             errorstr = u"### Sensor '%s', ERROR while writing value." % pin
@@ -241,8 +256,14 @@ class NESTclass:
         else:
 	    away_tempC = 'Null'
     	    away_tempF = 'Null'
-	if thermostat.target is not None:
-            self._log.error(u"### Target= %s " % thermostat.target)
+	if thermostat.mode != "range":
+	    if thermostat.target is not None:
+		print thermostat.targe
+#		self._log.error(u"### Target= %s " % thermostat.target)
+#		target = thermostat.target
+	else:
+	    self._log.info(u"### Target temperature = " + thermostat.target)
+	    target = thermostat.target[1]
         event = {
 	    'measurement': 'nest.thermostat',
             'name': thermostat.name,
@@ -257,8 +278,8 @@ class NESTclass:
             'temperature_C': (float)('%0.1f' % thermostat.temperature),
             'temperature_F': (float)('%0.1f' % self.CtoF(thermostat.temperature)),
             'humidity': thermostat.humidity,
-	    'target_C': (float)('%0.1f' % thermostat.target),
-            'target_F': (float)('%0.1f' % self.CtoF(thermostat.target)),
+	    'target_C': (float)('%0.1f' % target),
+            'target_F': (float)('%0.1f' % self.CtoF(target)),
             'away_low_C': (float)('%0.1f' % thermostat.away_temperature[0]),
             'away_low_F': (float)('%0.1f' % self.CtoF(thermostat.away_temperature[0])),  # noqa
             'away_high_C': away_tempC,
