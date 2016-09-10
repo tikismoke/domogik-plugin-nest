@@ -64,22 +64,22 @@ class NESTclass:
             Create a nest instance, allowing to use NEST api
             """
             self._log = log
-	    self.user = user
-	    self.password = password
-	    self.period = period
+            self.user = user
+            self.password = password
+            self.period = period
         except ValueError:
             self._log.error(u"error reading Nest.")
             return
 
     def boolify(self, s):
         return (str)(s).lower() in['true' '1' 't' 'y' 'yes' 'on' 'enable'
-	                           'enabled']
-			       
+                                   'enabled']
+    
     def epoch2date(self, epoch):
         return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(epoch))
 
     def CtoF(self, t):
-	return (t*9)/5+32
+        return (t*9)/5+32
 
     # -------------------------------------------------------------------------------------------------
     def readNestApi(self, name):
@@ -91,27 +91,27 @@ class NESTclass:
             for structure in self.napi.structures:
                 self._log.debug("Reading for name: '%s' " % name)
                 self._log.debug("Strucutre: '%s' " % structure)
-		event = self.mapStructure(structure)
+                event = self.mapStructure(structure)
                 self._log.debug("strucutre data: '%s' " % event)
-		if name == structure.name:
-		    return event
-		#list device
+                if name == structure.name:
+                    return event
+                #list device
                 self._log.debug("structure.devices: '%s' " % structure.devices)
                 # Loop through all Thermostats
                 for thermostat in structure.devices:
                     self._log.debug("thermostat name: '%s' " % thermostat.name)
                     event = self.mapThermostat(thermostat)
                     self._log.debug("thermostat data: '%s' " % event)
-		    if name == thermostat.serial:
-			return event
+                    if name == thermostat.serial:
+                        return event
                 # Loop through all Protects
                 for protect in structure.protectdevices:
                     self._log.debug("protect name: '%s' " % protect.name)
                     event = self.mapProtect(protect)
                     self._log.debug("protect data: '%s' " % event)
-		    if name == protect.name:
-			return event
-	    return "failed"
+                    if name == protect.name:
+                        return event
+            return "failed"
 
         except AttributeError:
             self._log.error(u"### Sensor '%s', ERROR while reading value." % sensor)
@@ -129,26 +129,26 @@ class NESTclass:
 
         try:
             for structure in self.napi.structures:
-	        if command == "away":
-    		    if name == structure.name:
-	    		if str(value)=="1":
-			    structure.away = "away"
-		        else:
-			    structure.away = "home"
-			self._log.info(u"Writing away state of '%s' to '%s'" % (name, structure.away))
-		elif command == "temperature":
-            	    for thermostat in structure.devices:
-    			if name == thermostat.serial:
-			    if thermostat.mode != "range":
-			        if int(value) > 32:
-				    thermostat.target = 32
-			        elif int(value) < 9 :
-				    thermostat.target = 9
-				else:
-				    thermostat.target = int(value)
-				self._log.info(u"Writing target temp of '%s' to '%s'" % (name, thermostat.target))
-			    else:
-				self._log.warning(u"Settings temperature when mode is set to heat-cool is not implement yet!!!!")
+                if command == "away":
+                    if name == structure.name:
+                        if str(value)=="1":
+                            structure.away = "away"
+                        else:
+                            structure.away = "home"
+                        self._log.info(u"Writing away state of '%s' to '%s'" % (name, structure.away))
+                elif command == "temperature":
+                    for thermostat in structure.devices:
+                        if name == thermostat.serial:
+                            if thermostat.mode != "range":
+                                if int(value) > 32:
+                                    thermostat.target = 32
+                                elif int(value) < 9 :
+                                    thermostat.target = 9
+                                else:
+                                    thermostat.target = int(value)
+                                self._log.info(u"Writing target temp of '%s' to '%s'" % (name, thermostat.target))
+                            else:
+                                self._log.warning(u"Settings temperature when mode is set to heat-cool is not implement yet!!!!")
 #Todo find a way to handle this case
 
         except AttributeError:
@@ -164,7 +164,7 @@ class NESTclass:
         """
         """
         while not stop.isSet():
-	    self.napi = nest.Nest(self.user, self.password, self.period)
+            self.napi = nest.Nest(self.user, self.password, self.period)
             val = self.readNestApi(name)
             if val != "failed":
                 send(deviceid, val)
@@ -172,8 +172,8 @@ class NESTclass:
             stop.wait(self.period)
 
     def mapProtect(self, protect):
-	event = {
-    	    'measurement': 'nest.protect',
+        event = {
+            'measurement': 'nest.protect',
             'name': protect.name,
             'where': protect.where,
             'serial': protect.serial,
@@ -251,22 +251,22 @@ class NESTclass:
         return event
 
     def mapThermostat(self, thermostat):
-	if thermostat.away_temperature[1] is not None:
-    	    away_tempC = (float)('%0.1f' % thermostat.away_temperature[1])
-	    away_tempF = (float)('%0.1f' % CtoF(thermostat.away_temperature[1]))
+        if thermostat.away_temperature[1] is not None:
+            away_tempC = (float)('%0.1f' % thermostat.away_temperature[1])
+            away_tempF = (float)('%0.1f' % CtoF(thermostat.away_temperature[1]))
         else:
-	    away_tempC = 'Null'
-    	    away_tempF = 'Null'
-	if thermostat.mode != "range":
-	    if thermostat.target is not None:
-		print thermostat.targe
-#		self._log.error(u"### Target= %s " % thermostat.target)
-#		target = thermostat.target
-	else:
-	    self._log.info(u"### Target temperature = " + thermostat.target)
-	    target = thermostat.target[1]
+            away_tempC = 'Null'
+            away_tempF = 'Null'
+        if thermostat.mode != "range":
+            if thermostat.target is not None:
+                print thermostat.targe
+#       		self._log.error(u"### Target= %s " % thermostat.target)
+#       		target = thermostat.target
+        else:
+            self._log.info(u"### Target temperature = " + thermostat.target)
+            target = thermostat.target[1]
         event = {
-	    'measurement': 'nest.thermostat',
+            'measurement': 'nest.thermostat',
             'name': thermostat.name,
             'where': thermostat.where,
             'serial': thermostat.serial,
@@ -279,7 +279,7 @@ class NESTclass:
             'temperature_C': (float)('%0.1f' % thermostat.temperature),
             'temperature_F': (float)('%0.1f' % self.CtoF(thermostat.temperature)),
             'humidity': thermostat.humidity,
-	    'target_C': (float)('%0.1f' % target),
+            'target_C': (float)('%0.1f' % target),
             'target_F': (float)('%0.1f' % self.CtoF(target)),
             'away_low_C': (float)('%0.1f' % thermostat.away_temperature[0]),
             'away_low_F': (float)('%0.1f' % self.CtoF(thermostat.away_temperature[0])),  # noqa

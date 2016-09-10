@@ -1,25 +1,25 @@
 {
     "configuration": [{
-	"description": "Email of your Nest account",
-	"key": "email_address",
-	"name": "Email address",
-	"required": "yes",
-	"default": "",
-	"type": "string"
+        "description": "Email of your Nest account",
+        "key": "email_address",
+        "name": "Email address",
+        "required": "yes",
+        "default": "",
+        "type": "string"
     }, {
-	"description": "Password of your Nest account",
-	"key": "password",
-	"name": "Password",
-	"required": "yes",
-	"default": "",
-	"type": "string"
+        "description": "Password of your Nest account",
+        "key": "password",
+    	"name": "Password",
+    	"required": "yes",
+    	"default": "",
+    	"type": "string"
     }, {
-	"description": "Refresh period in seconds",
-	"key": "period",
-	"name": "Period",
-	"required": "yes",
-	"default": "600",
-	"type": "integer"
+    	"description": "Refresh period in seconds",
+    	"key": "period",
+    	"name": "Period",
+    	"required": "yes",
+    	"default": "600",
+    	"type": "integer"
     }],
     "commands": {
         "set_away" : {

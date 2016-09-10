@@ -93,28 +93,27 @@ class nestManager(Plugin):
             device_type = a_device["device_type_id"]
             if device_type == "nest.home":
                 sensor_name = self.get_parameter(a_device, "name")
-	    else:
-	        sensor_name = self.get_parameter(a_device, "serial")
+            else:
+                sensor_name = self.get_parameter(a_device, "serial")
             self.device_list.update({device_id : {'name': device_name, 'named': sensor_name}})
-
-	    self.log.info(u"==> Device '{0}' (id:{1}/{2}), name = {3}".format(device_name, device_id, device_type, sensor_name))
-    	    self.log.debug(u"==> Sensor list of device '{0}': '{1}'".format(device_id, self.sensors[device_id]))
+            self.log.info(u"==> Device '{0}' (id:{1}/{2}), name = {3}".format(device_name, device_id, device_type, sensor_name))
+            self.log.debug(u"==> Sensor list of device '{0}': '{1}'".format(device_id, self.sensors[device_id]))
 
             self.log.debug(u"==> Launch reading thread for '%s' device !" % device_name)
             thr_name = "dev_{0}".format(device_id)
             threads[thr_name] = threading.Thread(None,
-        	                                    self.NESTclass.loop_read_sensor,
-            	                                    thr_name,
-                	                                (device_id,
-                    		                        device_name,
-                    	    		                sensor_name,
-                    		                        self.send_pub_data,
-                    	                                self.get_stop()),
-                                    	            {})
-	    threads[thr_name].start()
-    	    self.register_thread(threads[thr_name])
+                                                 self.NESTclass.loop_read_sensor,
+                                                 thr_name,
+                                                    (device_id,
+                                                    device_name,
+                                                    sensor_name,
+                                                    self.send_pub_data,
+                                                    self.get_stop()),
+                                                {})
+            threads[thr_name].start()
+            self.register_thread(threads[thr_name])
             self.log.info(u"==> Wait some time before running the next scheduled threads ...")
-	    time.sleep(5)        # Wait some time to not start the threads with the same interval et the same time.
+            time.sleep(5)        # Wait some time to not start the threads with the same interval et the same time.
 
         self.ready()
 
@@ -125,7 +124,7 @@ class nestManager(Plugin):
         self.log.debug(u"send_pub_data : '%s' for device_id: '%s' " % (value, device_id))
         data = {}
         value_dumps= json.dumps(value)
-	value_dict = json.loads(value_dumps)
+        value_dict = json.loads(value_dumps)
         for sensor in self.sensors[device_id]:
             self.log.debug(u"value receive : '%s' for sensors: '%s' " % (value_dict[sensor], sensor))
             data[self.sensors[device_id][sensor]] = value_dict[sensor]
@@ -161,16 +160,16 @@ class nestManager(Plugin):
 
             device_name = self.device_list[device_id]["name"]
             self.log.info(u"==> Received for device '%s' MQ REQ command message: %s" % (device_name, format(data)))
-	    for a_device in self.devices:
-    		if a_device["id"] == device_id:
-		    if a_device["device_type_id"] == "nest.home":
-            		sensor_name = self.get_parameter(a_device, "name")
-		        self.log.info(u"==> Received for nest name or serial '%s' MQ REQ command message: %s" % (sensor_name, format(data)))
-		        status, reason = self.NESTclass.writeState(sensor_name, "away", data["away"])
-		    elif a_device["device_type_id"] == "nest.thermostat":
-            		sensor_name = self.get_parameter(a_device, "serial")
-		        self.log.info(u"==> Received for nest name or serial '%s' MQ REQ command message: %s" % (sensor_name, format(data)))
-		        status, reason = self.NESTclass.writeState(sensor_name, "temperature", data["temperature"])
+            for a_device in self.devices:
+                if a_device["id"] == device_id:
+                    if a_device["device_type_id"] == "nest.home":
+                        sensor_name = self.get_parameter(a_device, "name")
+                        self.log.info(u"==> Received for nest name or serial '%s' MQ REQ command message: %s" % (sensor_name, format(data)))
+                        status, reason = self.NESTclass.writeState(sensor_name, "away", data["away"])
+                    elif a_device["device_type_id"] == "nest.thermostat":
+                        sensor_name = self.get_parameter(a_device, "serial")
+                        self.log.info(u"==> Received for nest name or serial '%s' MQ REQ command message: %s" % (sensor_name, format(data)))
+                        status, reason = self.NESTclass.writeState(sensor_name, "temperature", data["temperature"])
 
 #This should be eaisier but not available
 #	    sensor_name = self.get_parameter(self.device_list[device_id], "name")
@@ -181,8 +180,8 @@ class nestManager(Plugin):
 #            if status:
 #                self.send_pub_data(device_id, format(data))
 #                self.send_pub_data(device_id, data["away"])
-
-            self.send_rep_ack(status, reason, command_id, device_name) ;
+            
+            self.send_rep_ack(status, reason, command_id, device_name) ;            
 
     # -------------------------------------------------------------------------------------------------
     def send_rep_ack(self, status, reason, cmd_id, dev_name):
