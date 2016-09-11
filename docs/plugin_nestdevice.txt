@@ -22,7 +22,7 @@ Plugin configuration
 ====================
 Configuration
 -------------
-In Domogik administration section, go to client plugin-notify details page.
+In Domogik administration section, go to client plugin-nestdevice details page.
 
 +----------------+----------------------+-------------------------------------------------------------------------------+
 |Key             | Default value        | Description                                                                   |

@@ -11,7 +11,7 @@ source_suffix = '.txt'
 master_doc = 'index'
 
 ### part to update ###################################
-project = u'domogik-plugin-plugin_nestdevice'
+project = u'domogik-plugin-nestdevice'
 copyright = u'2016, tikismoke'
 version = '0.1'
 release = version
