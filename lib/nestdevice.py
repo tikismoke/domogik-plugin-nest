@@ -179,7 +179,7 @@ class NESTclass:
             'serial': protect.serial,
             'product_id': protect.product_id,
             'auto_away': self.boolify(protect.auto_away),
-            'battery-level': ( int ( protect.battery_level ) / 54 ),
+            'battery_level': ( int ( protect.battery_level ) / 54 ),
             'battery_mv': float(protect.battery_level),
             'co_blame_duration': protect.co_blame_duration,
             'co_blame_threshold': protect.co_blame_threshold,

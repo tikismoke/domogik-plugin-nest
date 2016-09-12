@@ -33,7 +33,7 @@
                 }
             ]
 	},
-        "set_temp" : {
+        "temperature_setpoint" : {
             "name" : "Temperature Setpoint",
             "return_confirmation" : true,
             "parameters" : [
@@ -48,7 +48,7 @@
     "xpl_commands": {},
     "sensors": {
 	"name": {
-	    "name": "name",
+	    "name": "Name",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -62,7 +62,7 @@
 	    }
 	},
 	"postal_code": {
-	    "name": "postal_code",
+	    "name": "Postal Code",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -76,7 +76,7 @@
 	    }
 	},
 	"country_code": {
-	    "name": "country_code",
+	    "name": "Country Code",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -90,7 +90,7 @@
 	    }
 	},
 	"house_type": {
-	    "name": "house_type",
+	    "name": "House Type",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -104,7 +104,7 @@
 	    }
 	},
 	"renovation_date": {
-	    "name": "renovation_date",
+	    "name": "Renovation Date",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -118,7 +118,7 @@
 	    }
 	},
 	"measurement_scale": {
-	    "name": "measurement_scale",
+	    "name": "Measurement Scale",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -132,7 +132,7 @@
 	    }
 	},
 	"emergency_contact_type": {
-	    "name": "emergency_contact_type",
+	    "name": "Emergency Contact Type",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -146,7 +146,7 @@
 	    }
 	},
 	"emergency_contact_description": {
-	    "name": "emergency_contact_description",
+	    "name": "Emergency Contact Description",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -160,7 +160,7 @@
 	    }
 	},
 	"emergency_contact_phone": {
-	    "name": "emergency_contact_phone",
+	    "name": "Emergency Contact Phone",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -174,7 +174,7 @@
 	    }
 	},
 	"structure_area_m2": {
-	    "name": "structure_area_m2",
+	    "name": "Structure Area m2",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -188,7 +188,7 @@
 	    }
 	},
 	"away": {
-	    "name": "away",
+	    "name": "Away",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -202,7 +202,7 @@
 	    }
 	},
 	"measurement": {
-	    "name": "measurement",
+	    "name": "Measurement",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -216,7 +216,7 @@
 	    }
 	},
 	"name": {
-	    "name": "name",
+	    "name": "Name",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -230,7 +230,7 @@
 	    }
 	},
 	"where": {
-	    "name": "where",
+	    "name": "Where",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -244,7 +244,7 @@
 	    }
 	},
 	"serial": {
-	    "name": "serial",
+	    "name": "Serial",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -258,7 +258,7 @@
 	    }
 	},
 	"product_id": {
-	    "name": "product_id",
+	    "name": "Product ID",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -272,7 +272,7 @@
 	    }
 	},
 	"auto_away": {
-	    "name": "auto_away",
+	    "name": "Auto Away",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -286,7 +286,7 @@
 	    }
 	},
 	"battery_mv": {
-	    "name": "battery_mv",
+	    "name": "Battery mv",
 	    "data_type": "DT_mVolt",
 	    "conversion": "",
 	    "incremental": false,
@@ -299,8 +299,8 @@
                 "round_value": 0
 	    }
 	},
-	"battery-level": {
-	    "name": "battery-level",
+	"battery_level": {
+	    "name": "Battery Level",
 	    "data_type": "DT_Battery",
 	    "conversion": "",
 	    "incremental": false,
@@ -314,7 +314,7 @@
 	    }
 	},
 	"co_blame_duration": {
-	    "name": "co_blame_duration",
+	    "name": "CO Blame Duration",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -328,7 +328,7 @@
 	    }
 	},
 	"co_blame_threshold": {
-	    "name": "co_blame_threshold",
+	    "name": "CO Blame Threshold",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -342,7 +342,7 @@
 	    }
 	},
 	"co_previous_peak": {
-	    "name": "co_previous_peak",
+	    "name": "CO Previous Peak",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -356,7 +356,7 @@
 	    }
 	},
 	"co_status": {
-	    "name": "co_status",
+	    "name": "CO status",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -370,7 +370,7 @@
 	    }
 	},
 	"smoke_status": {
-	    "name": "smoke_status",
+	    "name": "Smoke Status",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -384,7 +384,7 @@
 	    }
 	},
 	"component_als_test_passed": {
-	    "name": "component_als_test_passed",
+	    "name": "Component als test passed",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -398,7 +398,7 @@
 	    }
 	},
 	"component_co_test_passed": {
-	    "name": "component_co_test_passed",
+	    "name": "Component CO test passed",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -412,7 +412,7 @@
 	    }
 	},
 	"component_heat_test_passed": {
-	    "name": "component_heat_test_passed",
+	    "name": "Component heat test passed",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -426,7 +426,7 @@
 	    }
 	},
 	"component_hum_test_passed": {
-	    "name": "component_hum_test_passed",
+	    "name": "Component hum test passed",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -440,7 +440,7 @@
 	    }
 	},
 	"component_led_test_passed": {
-	    "name": "component_led_test_passed",
+	    "name": "Component led test passed",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -454,7 +454,7 @@
 	    }
 	},
 	"component_pir_test_passed": {
-	    "name": "component_pir_test_passed",
+	    "name": "Component pir test passed",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -468,7 +468,7 @@
 	    }
 	},
 	"component_smoke_test_passed": {
-	    "name": "component_smoke_test_passed",
+	    "name": "Component smoke test passed",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -482,7 +482,7 @@
 	    }
 	},
 	"component_temp_test_passed": {
-	    "name": "component_temp_test_passed",
+	    "name": "Component temp test passed",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -496,7 +496,7 @@
 	    }
 	},
 	"component_us_test_passed": {
-	    "name": "component_us_test_passed",
+	    "name": "Component us test passed",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -510,7 +510,7 @@
 	    }
 	},
 	"component_wifi_test_passed": {
-	    "name": "component_wifi_test_passed",
+	    "name": "Component wifi test passed",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -524,7 +524,7 @@
 	    }
 	},
 	"gesture_hush_enable": {
-	    "name": "gesture_hush_enable",
+	    "name": "Gesture hush enable",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -538,7 +538,7 @@
 	    }
 	},
 	"heads_up_enable": {
-	    "name": "heads_up_enable",
+	    "name": "Heads up enable",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -552,7 +552,7 @@
 	    }
 	},
 	"home_alarm_link_capable": {
-	    "name": "home_alarm_link_capable",
+	    "name": "Home alarm linkh capable",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -566,7 +566,7 @@
 	    }
 	},
 	"home_alarm_link_connected": {
-	    "name": "home_alarm_link_connected",
+	    "name": "Home alarm link connected",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -580,7 +580,7 @@
 	    }
 	},
 	"hushed_state": {
-	    "name": "hushed_state",
+	    "name": "Hushed state",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -594,7 +594,7 @@
 	    }
 	},
 	"latest_manual_test_cancelled": {
-	    "name": "latest_manual_test_cancelled",
+	    "name": "Latest manual test cancelled",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -608,7 +608,7 @@
 	    }
 	},
 	"line_power_present": {
-	    "name": "line_power_present",
+	    "name": "Line power present",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -622,7 +622,7 @@
 	    }
 	},
 	"night_light_continuous": {
-	    "name": "night_light_continuous",
+	    "name": "Night light continuous",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -636,7 +636,7 @@
 	    }
 	},
 	"night_light_enable": {
-	    "name": "night_light_enable",
+	    "name": "Night light enable",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -650,7 +650,7 @@
 	    }
 	},
 	"ntp_green_led_enable": {
-	    "name": "ntp_green_led_enable",
+	    "name": "Ntp green led enable",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -664,7 +664,7 @@
 	    }
 	},
 	"steam_detection_enable": {
-	    "name": "steam_detection_enable",
+	    "name": "Steam detection enable",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -678,7 +678,7 @@
 	    }
 	},
 	"wired_led_enable": {
-	    "name": "wired_led_enable",
+	    "name": "Wired led enable",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
@@ -692,7 +692,7 @@
 	    }
 	},
 	"description": {
-	    "name": "description",
+	    "name": "Description",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -706,7 +706,7 @@
 	    }
 	},
 	"software_version": {
-	    "name": "software_version",
+	    "name": "Software Version",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -720,7 +720,7 @@
 	    }
 	},
 	"wifi_ip_address": {
-	    "name": "wifi_ip_address",
+	    "name": "Wifi ip address",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -734,7 +734,7 @@
 	    }
 	},
 	"wifi_mac_address": {
-	    "name": "wifi_mac_address",
+	    "name": "Wifi mac address",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -748,7 +748,7 @@
 	    }
 	},
 	"thread_mac_address": {
-	    "name": "thread_mac_address",
+	    "name": "Thread mac address",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -762,7 +762,7 @@
 	    }
 	},
 	"battery_health_state": {
-	    "name": "battery_health_state",
+	    "name": "Battery health state",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -776,7 +776,7 @@
 	    }
 	},
 	"capability_level": {
-	    "name": "capability_level",
+	    "name": "Capability Level",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -790,7 +790,7 @@
 	    }
 	},
 	"certification_body": {
-	    "name": "certification_body",
+	    "name": "Certification Body",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -804,7 +804,7 @@
 	    }
 	},
 	"creation_time": {
-	    "name": "creation_time",
+	    "name": "Creation Time",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -818,7 +818,7 @@
 	    }
 	},
 	"home_alarm_link_type": {
-	    "name": "home_alarm_link_type",
+	    "name": "Home alarm link type",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -832,7 +832,7 @@
 	    }
 	},
 	"latest_manual_test_end_utc_secs": {
-	    "name": "latest_manual_test_end_utc_secs",
+	    "name": "Latest manual test end utc secs",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -846,7 +846,7 @@
 	    }
 	},
 	"latest_manual_test_start_utc_secs": {
-	    "name": "latest_manual_test_start_utc_secs",
+	    "name": "Latest manual test start utc secs",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -860,7 +860,7 @@
 	    }
 	},
 	"replace_by_date_utc_secs": {
-	    "name": "replace_by_date_utc_secs",
+	    "name": "Replace by date utc secs",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -874,7 +874,7 @@
 	    }
 	},
 	"co_sequence_number": {
-	    "name": "co_sequence_number",
+	    "name": "CO sequence number",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -888,7 +888,7 @@
 	    }
 	},
 	"smoke_sequence_number": {
-	    "name": "smoke_sequence_number",
+	    "name": "Smoke sequence number",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -902,7 +902,7 @@
 	    }
 	},
 	"wired_or_battery": {
-	    "name": "wired_or_battery",
+	    "name": "Wired or Battery",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -916,7 +916,7 @@
 	    }
 	},
         "last_ip": {
-	    "name": "last_ip",
+	    "name": "Last ip",
     	    "data_type": "DT_String",
             "conversion": "",
             "incremental": false,
@@ -930,7 +930,7 @@
             }
 	},
         "local_ip": {
-            "name": "local_ip",
+            "name": "Local ip",
             "data_type": "DT_String",
             "conversion": "",
             "incremental": false,
@@ -944,7 +944,7 @@
             }
         },
         "mode": {
-            "name": "mode",
+            "name": "Mode",
             "data_type": "DT_String",
             "conversion": "",
             "incremental": false,
@@ -958,7 +958,7 @@
             }
         },
         "last_connection": {
-            "name": "last_connection",
+            "name": "Last connection",
             "data_type": "DT_String",
             "conversion": "",
             "incremental": false,
@@ -972,7 +972,7 @@
             }
         },
 	"error_code": {
-            "name": "error_code",
+            "name": "Error code",
             "data_type": "DT_String",
             "conversion": "",
             "incremental": false,
@@ -986,7 +986,7 @@
             }
         },
 	"fan": {
-    	    "name": "fan",
+    	    "name": "Fan",
             "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
@@ -1000,7 +1000,7 @@
             }
         },
 	"temperature_C": {
-            "name": "temperature_C",
+            "name": "Temperature C",
             "data_type": "DT_Temp",
             "conversion": "",
             "incremental": false,
@@ -1014,7 +1014,7 @@
             }
 	},
         "temperature_F": {
-            "name": "temperature_F",
+            "name": "Temperature F",
             "data_type": "DT_TempF",
             "conversion": "",
             "incremental": false,
@@ -1028,7 +1028,7 @@
     	    }
         },
 	"humidity": {
-	    "name": "humidity",
+	    "name": "Humidity",
 	    "data_type": "DT_Humidity",
             "conversion": "",
             "incremental": false,
@@ -1042,7 +1042,7 @@
 	    }
         },
         "target_C": {
-	    "name": "target_C",
+	    "name": "Target C",
             "data_type": "DT_Temp",
             "conversion": "",
             "incremental": false,
@@ -1056,7 +1056,7 @@
             }
         },
 	"target_F": {
-            "name": "target_F",
+            "name": "Target F",
             "data_type": "DT_TempF",
             "conversion": "",
             "incremental": false,
@@ -1070,7 +1070,7 @@
 	    }
         },
 	"away_low_C": {
-            "name": "away_low_C",
+            "name": "Away low C",
             "data_type": "DT_Temp",
             "conversion": "",
             "incremental": false,
@@ -1084,7 +1084,7 @@
             }
 	},
         "away_low_F": {
-            "name": "away_low_F",
+            "name": "Away low F",
             "data_type": "DT_TempF",
             "conversion": "",
             "incremental": false,
@@ -1098,7 +1098,7 @@
             }
         },
 	"away_high_C": {
-	    "name": "away_high_C",
+	    "name": "Away high C",
             "data_type": "DT_Temp",
             "conversion": "",
             "incremental": false,
@@ -1112,7 +1112,7 @@
             }
 	},
 	"away_high_F": {
-	    "name": "away_high_F",
+	    "name": "Away high F",
             "data_type": "DT_TempF",
             "conversion": "",
             "incremental": false,
@@ -1126,7 +1126,7 @@
             }
 	},
 	"hvac_ac_state": {
-    	    "name": "hvac_ac_state",
+    	    "name": "HVAC ac state",
             "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
@@ -1140,7 +1140,7 @@
 	    }
         },
         "hvac_cool_x2_state": {
-            "name": "hvac_cool_x2_state",
+            "name": "HVAC cool x2 state",
             "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
@@ -1154,7 +1154,7 @@
 	    }
         },
         "hvac_heater_state": {
-            "name": "hvac_heater_state",
+            "name": "HVAC heater state",
             "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
@@ -1168,7 +1168,7 @@
             }
 	},
         "hvac_aux_heater_state": {
-            "name": "hvac_aux_heater_state",
+            "name": "HVAC aux heater state",
             "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
@@ -1182,7 +1182,7 @@
 	    }
         },
         "hvac_heat_x2_state": {
-    	    "name": "hvac_heat_x2_state",
+    	    "name": "HVAC heat x2 state",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
@@ -1196,7 +1196,7 @@
             }
 	},
         "hvac_heat_x3_state": {
-            "name": "hvac_heat_x3_state",
+            "name": "HVAC heat x3 state",
             "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
@@ -1210,7 +1210,7 @@
             }
         },
 	"hvac_alt_heat_state": {
-            "name": "hvac_alt_heat_state",
+            "name": "HVAC alt heat state",
             "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
@@ -1224,7 +1224,7 @@
     	    }
         },
         "hvac_alt_heat_x2_state": {
-	    "name": "hvac_alt_heat_x2_state",
+	    "name": "HVAC alt heat x2 state",
 	    "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
@@ -1238,7 +1238,7 @@
 	    }
         },
         "hvac_emer_heat_state": {
-	    "name": "hvac_emer_heat_state",
+	    "name": "HVAC emer heat state",
             "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
@@ -1252,7 +1252,7 @@
             }
         },
         "online": {
-            "name": "online",
+            "name": "Online",
             "data_type": "DT_Bool",
 	    "conversion": "from_false_true_to_DT_Bool",
             "incremental": false,
@@ -1273,7 +1273,7 @@
 	    "description": "Smoke and Co2 alarm",
 	    "name": "Nest Protect",
 	    "commands": [],
-	    "sensors": ["measurement", "name", "where", "serial", "product_id", "auto_away", "battery-level", "battery_mv", "co_blame_duration", "co_blame_threshold", "co_previous_peak", "co_status", "smoke_status", "component_als_test_passed",  "component_co_test_passed", "component_heat_test_passed", "component_hum_test_passed", "component_led_test_passed", "component_pir_test_passed", "component_smoke_test_passed", "component_temp_test_passed", "component_us_test_passed", "component_wifi_test_passed", "gesture_hush_enable", "heads_up_enable", "home_alarm_link_capable", "home_alarm_link_connected", "hushed_state", "latest_manual_test_cancelled", "line_power_present", "night_light_continuous", "night_light_enable", "ntp_green_led_enable", "steam_detection_enable", "wired_led_enable", "description", "software_version", "wifi_ip_address", "wifi_mac_address", "thread_mac_address", "battery_health_state", "capability_level", "certification_body", "creation_time", "home_alarm_link_type", "latest_manual_test_end_utc_secs", "latest_manual_test_start_utc_secs", "replace_by_date_utc_secs", "co_sequence_number", "smoke_sequence_number", "wired_or_battery"],
+	    "sensors": ["measurement", "name", "where", "serial", "product_id", "auto_away", "battery_level", "battery_mv", "co_blame_duration", "co_blame_threshold", "co_previous_peak", "co_status", "smoke_status", "component_als_test_passed",  "component_co_test_passed", "component_heat_test_passed", "component_hum_test_passed", "component_led_test_passed", "component_pir_test_passed", "component_smoke_test_passed", "component_temp_test_passed", "component_us_test_passed", "component_wifi_test_passed", "gesture_hush_enable", "heads_up_enable", "home_alarm_link_capable", "home_alarm_link_connected", "hushed_state", "latest_manual_test_cancelled", "line_power_present", "night_light_continuous", "night_light_enable", "ntp_green_led_enable", "steam_detection_enable", "wired_led_enable", "description", "software_version", "wifi_ip_address", "wifi_mac_address", "thread_mac_address", "battery_health_state", "capability_level", "certification_body", "creation_time", "home_alarm_link_type", "latest_manual_test_end_utc_secs", "latest_manual_test_start_utc_secs", "replace_by_date_utc_secs", "co_sequence_number", "smoke_sequence_number", "wired_or_battery"],
 	    "parameters": [{
 		"key": "serial",
 		"xpl": false,
@@ -1285,8 +1285,8 @@
 	    "id": "nest.thermostat",
 	    "description": "Learning Thermostat",
 	    "name": "Nest thermostat",
-	    "commands": ["set_temp"],
-	    "sensors": ["measurement", "name", "where", "serial", "local_ip", "mode", "error_code", "fan", "temperature_C", "temperature_F", "humidity", "target_C", "target_F", "away_low_C", "away_low_F", "away_high_C", "away_high_F", "hvac_ac_state", "hvac_cool_x2_state", "hvac_heater_state", "hvac_aux_heater_state", "hvac_heat_x2_state", "hvac_heat_x3_state", "hvac_alt_heat_state", "hvac_alt_heat_x2_state", "hvac_emer_heat_state", "online", "battery-level"],
+	    "commands": ["temperature_setpoint"],
+	    "sensors": ["measurement", "name", "where", "serial", "local_ip", "mode", "error_code", "fan", "temperature_C", "temperature_F", "humidity", "target_C", "target_F", "away_low_C", "away_low_F", "away_high_C", "away_high_F", "hvac_ac_state", "hvac_cool_x2_state", "hvac_heater_state", "hvac_aux_heater_state", "hvac_heat_x2_state", "hvac_heat_x3_state", "hvac_alt_heat_state", "hvac_alt_heat_x2_state", "hvac_emer_heat_state", "online", "battery_level"],
 	    "parameters": [{
 		"key": "serial",
 		"xpl": false,
