@@ -179,7 +179,7 @@ class NESTclass:
             'serial': protect.serial,
             'product_id': protect.product_id,
             'auto_away': self.boolify(protect.auto_away),
-            'battery_level': ( int ( protect.battery_level ) / 54 ),
+            'battery_level': ( int ( protect.battery_level ) / 54 ), #It's a supposed value due to 3x1.8V battery inside (http://forum.micasaverde.com/index.php?topic=16941)
             'battery_mv': float(protect.battery_level),
             'co_blame_duration': protect.co_blame_duration,
             'co_blame_threshold': protect.co_blame_threshold,
