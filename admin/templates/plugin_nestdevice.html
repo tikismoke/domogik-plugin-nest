@@ -3,6 +3,16 @@
 
 {% block content %}
 {% include theme("client_menu.html") %}
+
+<div class="container">
+    <div class="panel panel-default">
+                <div class="panel-heading"><h4>{% trans %}List of available Device in this Nest account{% endtrans %}</h4></div>
+                <div class="panel-body">
+                        <pre>{{ device_list }}</pre>
+                </div>
+        </div>
+</div>
+
 <div class="container">
     <div class="panel panel-default">
 		<div class="panel-heading"><h4>{% trans %}Last errors in plugin log{% endtrans %}</h4></div>

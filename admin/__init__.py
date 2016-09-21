@@ -12,6 +12,9 @@ import sys
 
 ### package specific imports
 import subprocess
+import nest
+import locale
+import time
 
 
 ### package specific functions
@@ -24,7 +27,19 @@ def get_info_from_log(cmd):
         output = unicode(output, 'utf-8')
     return output
 
-
+def get_device_list(username , password):
+    napi = nest.Nest(username , password)
+    try:
+	return_value = ""
+	for structure in napi.structures:
+	    return_value =  return_value + "Nest.Home name: " + " " + str(structure.name) + "\n"
+            for ProtectDevice in structure.protectdevices:
+		return_value = return_value + "Nest.Protect serial: " + " " + str(ProtectDevice.name) + "\n"
+            for device in structure.devices:
+	        return_value = return_value + "Nest.Thermostat serial: " + " " + str(device.name) + "\n"
+        return return_value
+    except:
+	return unicode("ERROR getting Nest information\nCheck your configuration", 'utf-8')
 
 ### common tasks
 package = "plugin_nestdevice"
@@ -40,13 +55,16 @@ plugin_nestdevice_adm = Blueprint(package, __name__,
 @plugin_nestdevice_adm.route('/<client_id>')
 def index(client_id):
     detail = get_client_detail(client_id)
-    device = str(detail['data']['configuration'][1]['value'])
+    nest_email_account = str(detail['data']['configuration'][1]['value'])
+    nest_password_account = str(detail['data']['configuration'][2]['value'])
+    
     try:
         return render_template('plugin_nestdevice.html',
             clientid = client_id,
             client_detail = detail,
             mactive="clients",
             active = 'advanced',
+            device_list = get_device_list(nest_email_account,nest_password_account),
             errorlog = get_info_from_log(geterrorlogcmd))
 
     except TemplateNotFound:
