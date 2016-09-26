@@ -34,6 +34,7 @@ class NEST, nestException
 
 import traceback
 import subprocess
+
 try:
     import nest
 except RuntimeError:
@@ -42,10 +43,12 @@ except RuntimeError:
 import locale
 import time
 
+
 class nestException(Exception):
     """
     NEST exception
     """
+
     def __init__(self, value):
         Exception.__init__(self)
         self.value = value
@@ -53,10 +56,12 @@ class nestException(Exception):
     def __str__(self):
         return repr(self.value)
 
+
 class NESTclass:
     """
     Get informations about nest
     """
+
     # -------------------------------------------------------------------------------------------------
     def __init__(self, log, user, password, period):
         try:
@@ -65,21 +70,33 @@ class NESTclass:
             """
             self._log = log
             self.user = user
+            self._sensors = []
             self.password = password
             self.period = period
+            self.napi = nest.Nest(self.user, self.password)
         except ValueError:
             self._log.error(u"error reading Nest.")
             return
 
+    # -------------------------------------------------------------------------------------------------
     def boolify(self, s):
-        return (str)(s).lower() in['true' '1' 't' 'y' 'yes' 'on' 'enable'
-                                   'enabled']
-    
+        return (str)(s).lower() in ['true' '1' 't' 'y' 'yes' 'on' 'enable'
+                                    'enabled']
+
+    # -------------------------------------------------------------------------------------------------
     def epoch2date(self, epoch):
         return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(epoch))
 
+    # -------------------------------------------------------------------------------------------------
     def CtoF(self, t):
-        return (t*9)/5+32
+        return (t * 9) / 5 + 32
+
+    # -------------------------------------------------------------------------------------------------
+    def add_sensor(self, deviceid, device_name, sensor_name):
+        """
+        Add a sensor to sensors list.
+        """
+        self._sensors.append({'deviceid': deviceid, 'device_name': device_name, 'sensor_name': sensor_name})
 
     # -------------------------------------------------------------------------------------------------
     def readNestApi(self, name):
@@ -95,7 +112,7 @@ class NESTclass:
                 self._log.debug("strucutre data: '%s' " % event)
                 if name == structure.name:
                     return event
-                #list device
+                # list device
                 self._log.debug("structure.devices: '%s' " % structure.devices)
                 # Loop through all Thermostats
                 for thermostat in structure.devices:
@@ -114,9 +131,8 @@ class NESTclass:
             return "failed"
 
         except AttributeError:
-            self._log.error(u"### Sensor '%s', ERROR while reading value." % sensor)
+            self._log.error(u"### Sensor '%s', ERROR while reading value." % name)
             return "failed"
-
 
     # -------------------------------------------------------------------------------------------------
     def writeState(self, name, command, value):
@@ -124,14 +140,14 @@ class NESTclass:
             Write nest device 'name' with 'value'
         """
 
-	self._log.debug(u"==> Receive writeState command for '%s'" % name)
-	self._log.debug(u"==> And value '%s'" % value)
+        self._log.debug(u"==> Receive writeState command for '%s'" % name)
+        self._log.debug(u"==> And value '%s'" % value)
 
         try:
             for structure in self.napi.structures:
                 if command == "away":
                     if name == structure.name:
-                        if str(value)=="1":
+                        if str(value) == "1":
                             structure.away = "away"
                         else:
                             structure.away = "home"
@@ -142,14 +158,15 @@ class NESTclass:
                             if thermostat.mode != "range":
                                 if int(value) > 32:
                                     thermostat.target = 32
-                                elif int(value) < 9 :
+                                elif int(value) < 9:
                                     thermostat.target = 9
                                 else:
                                     thermostat.target = int(value)
                                 self._log.info(u"Writing target temp of '%s' to '%s'" % (name, thermostat.target))
                             else:
-                                self._log.warning(u"Settings temperature when mode is set to heat-cool is not implement yet!!!!")
-#Todo find a way to handle this case
+                                self._log.warning(
+                                    u"Settings temperature when mode is set to heat-cool is not implement yet!!!!")
+                                # Todo find a way to handle this case
 
         except AttributeError:
             errorstr = u"### Sensor '%s', ERROR while writing value." % pin
@@ -157,21 +174,30 @@ class NESTclass:
             return False, errorstr
         return True, None
 
-
-
     # -------------------------------------------------------------------------------------------------
-    def loop_read_sensor(self, deviceid, device, name, send, stop):
+    def loop_read_sensor(self, send, stop):
         """
         """
         while not stop.isSet():
-            self.napi = nest.Nest(self.user, self.password, self.period)
-            val = self.readNestApi(name)
-            if val != "failed":
-                send(deviceid, val)
-            self._log.debug(u"=> '{0}' : wait for {1} seconds".format(device, self.period))
+            self._log.debug(u"#########=> Loop_read_sensors")
+
+            try:  # catch error if self._sensors modify during iteration
+                self._log.debug(u"#########=> Loop_read_sensors TRY")
+                print self._sensors
+                for sensor in self._sensors:
+                    self._log.debug(u"#########=> Loop_read_sensors for sensors")
+                    val = self.readNestApi(sensor['sensor_name'])
+                    if val != "failed":
+                        send(sensor['deviceid'], val)
+                    self._log.debug(u"=> '{0}' : wait for {1} seconds".format(sensor['sensor_name'], self.period))
+            except:
+                self._log.debug(u"#########=> Loop_read_sensors EXCEPTION##############")
+                pass
             stop.wait(self.period)
 
+    # -------------------------------------------------------------------------------------------------
     def mapProtect(self, protect):
+
         event = {
             'measurement': 'nest.protect',
             'name': protect.name,
@@ -179,7 +205,8 @@ class NESTclass:
             'serial': protect.serial,
             'product_id': protect.product_id,
             'auto_away': self.boolify(protect.auto_away),
-            'battery_level': ( int ( protect.battery_level ) / 54 ), #It's a supposed value due to 3x1.8V battery inside (http://forum.micasaverde.com/index.php?topic=16941)
+            'battery_level': (int(protect.battery_level) / 54),
+            # It's a supposed value due to 3x1.8V battery inside (http://forum.micasaverde.com/index.php?topic=16941)
             'battery_mv': float(protect.battery_level),
             'co_blame_duration': protect.co_blame_duration,
             'co_blame_threshold': protect.co_blame_threshold,
@@ -216,7 +243,7 @@ class NESTclass:
             'battery_health_state': protect.battery_health_state,
             'capability_level': protect.capability_level,
             'certification_body': protect.certification_body,
-            'creation_time': self.epoch2date(protect.creation_time/1000),
+            'creation_time': self.epoch2date(protect.creation_time / 1000),
             'home_alarm_link_type': protect.home_alarm_link_type,
             'latest_manual_test_end_utc_secs': protect.latest_manual_test_end_utc_secs,  # noqa
             'latest_manual_test_start_utc_secs': protect.latest_manual_test_start_utc_secs,  # noqa
@@ -227,7 +254,9 @@ class NESTclass:
         }
         return event
 
+    # -------------------------------------------------------------------------------------------------
     def mapStructure(self, structure):
+
         event = {
             'measurement': 'nest.structure',
             'name': structure.name,
@@ -240,16 +269,16 @@ class NESTclass:
             'emergency_contact_type': structure.emergency_contact_type,
             'emergency_contact_phone': structure.emergency_contact_phone,
             'structure_area_m2': ('%0.0f' % structure.structure_area),
-#            'structure_area_ft2': ('%0.0f' % m2toft2(structure.structure_area)),  # noqa
-#            'dr_reminder_enabled': structure.dr_reminder_enabled,
-#            'enhanced_auto_away_enabled': structure.enhanced_auto_away_enabled,
-#            'eta_preconditioning_active': structure.eta_preconditioning_active,
-#            'hvac_safety_shutoff_enabled': self.boolify(structure.hvac_safety_shutoff_enabled),
+            #            'structure_area_ft2': ('%0.0f' % m2toft2(structure.structure_area)),  # noqa
+            #            'dr_reminder_enabled': structure.dr_reminder_enabled,
+            #            'enhanced_auto_away_enabled': structure.enhanced_auto_away_enabled,
+            #            'eta_preconditioning_active': structure.eta_preconditioning_active,
+            #            'hvac_safety_shutoff_enabled': self.boolify(structure.hvac_safety_shutoff_enabled),
             'away': structure.away
         }
-    
         return event
 
+    # -------------------------------------------------------------------------------------------------
     def mapThermostat(self, thermostat):
         if thermostat.away_temperature[1] is not None:
             away_tempC = (float)('%0.1f' % thermostat.away_temperature[1])
@@ -260,8 +289,8 @@ class NESTclass:
         if thermostat.mode != "range":
             if thermostat.target is not None:
                 print thermostat.targe
-#       		self._log.error(u"### Target= %s " % thermostat.target)
-#       		target = thermostat.target
+                #                   self._log.error(u"### Target= %s " % thermostat.target)
+                #                   target = thermostat.target
         else:
             self._log.info(u"### Target temperature = " + thermostat.target)
             target = thermostat.target[1]
@@ -270,10 +299,10 @@ class NESTclass:
             'name': thermostat.name,
             'where': thermostat.where,
             'serial': thermostat.serial,
-#            'last_ip': thermostat.last_ip,
+            #            'last_ip': thermostat.last_ip,
             'local_ip': thermostat.local_ip,
             'mode': thermostat.mode,
-#            'last_connection': self.epoch2date(thermostat.last_connection/1000),
+            #            'last_connection': self.epoch2date(thermostat.last_connection/1000),
             'error_code': thermostat.error_code,
             'fan': self.boolify(thermostat.fan),
             'temperature_C': (float)('%0.1f' % thermostat.temperature),
@@ -297,5 +326,4 @@ class NESTclass:
             'online': self.boolify(thermostat.online),
             'battery_level': float(thermostat.battery_level)
         }
-
-	return event
+        return event
