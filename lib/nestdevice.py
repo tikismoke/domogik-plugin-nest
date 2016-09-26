@@ -169,7 +169,7 @@ class NESTclass:
                                 # Todo find a way to handle this case
 
         except AttributeError:
-            errorstr = u"### Sensor '%s', ERROR while writing value." % pin
+            errorstr = u"### Sensor '%s', ERROR while writing value." % name
             self._log.error(errorstr)
             return False, errorstr
         return True, None
@@ -179,19 +179,14 @@ class NESTclass:
         """
         """
         while not stop.isSet():
-            self._log.debug(u"#########=> Loop_read_sensors")
-
             try:  # catch error if self._sensors modify during iteration
-                self._log.debug(u"#########=> Loop_read_sensors TRY")
-                print self._sensors
                 for sensor in self._sensors:
-                    self._log.debug(u"#########=> Loop_read_sensors for sensors")
                     val = self.readNestApi(sensor['sensor_name'])
                     if val != "failed":
                         send(sensor['deviceid'], val)
                     self._log.debug(u"=> '{0}' : wait for {1} seconds".format(sensor['sensor_name'], self.period))
             except:
-                self._log.debug(u"#########=> Loop_read_sensors EXCEPTION##############")
+                self._log.error(u"# Loop_read_sensors EXCEPTION")
                 pass
             stop.wait(self.period)
 
