@@ -37,7 +37,7 @@ def get_device_list(username , password):
             for ProtectDevice in structure.protectdevices:
 		return_value = return_value + "Nest.Protect serial: " + " " + str(ProtectDevice.where) + " " + str(ProtectDevice.serial) + "\n"
             for device in structure.devices:
-	        return_value = return_value + "Nest.Thermostat serial: " + " " + str(device.where) + " " + str(device.serial) + "\n"
+	        return_value = return_value + "Nest.Thermostat serial: " + " " + str(device.where) + " " + str(device.name) + "\n"
         return return_value
     except:
 	return unicode("ERROR getting Nest information!\nCheck your configuration.\nOr wait some time if you do too much request in little time.", 'utf-8')
@@ -51,7 +51,7 @@ def get_device(username , password):
             for ProtectDevice in structure.protectdevices:
 		return_value.append({'type':'nest.protect','where':str(ProtectDevice.where),'serial':str(ProtectDevice.serial)})
             for device in structure.devices:
-		return_value.append({'type':'nest.thermostat','where':str(device.where),'serial':str(device.serial)})
+		return_value.append({'type':'nest.thermostat','where':str(device.where),'serial':str(device.name)})
         return return_value
     except:
 	return unicode("ERROR getting Nest information\nCheck your configuration", 'utf-8')
