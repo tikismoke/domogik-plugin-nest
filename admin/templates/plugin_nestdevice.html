@@ -10,6 +10,26 @@
                 <div class="panel-body">
                         <pre>{{ device_list }}</pre>
                 </div>
+<table class='table'>
+                <thead>
+                <tr>
+                    <th>{% trans %}Serial (Clic to create device){% endtrans %}</th>
+                    <th>{% trans %}Device Type{% endtrans %}</th>
+                    <th>{% trans %}Device Where{% endtrans %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for device in devices %}
+                <tr>
+                    <td>
+                        <a href="/client/{{ clientid }}/dmg_devices/new/type/{{device.type}}?serial={{ device.serial }}&name={{ device.serial }}">{{ device.serial }}</a></td>
+                    <td>{{ device.type }}</td>
+                    <td>{{ device.where }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+</table>
+
         </div>
 </div>
 

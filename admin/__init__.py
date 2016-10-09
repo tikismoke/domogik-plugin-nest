@@ -15,6 +15,7 @@ import subprocess
 import nest
 import locale
 import time
+import json
 
 
 ### package specific functions
@@ -34,9 +35,23 @@ def get_device_list(username , password):
 	for structure in napi.structures:
 	    return_value =  return_value + "Nest.Home name: " + " " + str(structure.name) + "\n"
             for ProtectDevice in structure.protectdevices:
-		return_value = return_value + "Nest.Protect serial: " + " " + str(ProtectDevice.name) + "\n"
+		return_value = return_value + "Nest.Protect serial: " + " " + str(ProtectDevice.where) + " " + str(ProtectDevice.serial) + "\n"
             for device in structure.devices:
-	        return_value = return_value + "Nest.Thermostat serial: " + " " + str(device.name) + "\n"
+	        return_value = return_value + "Nest.Thermostat serial: " + " " + str(device.where) + " " + str(device.serial) + "\n"
+        return return_value
+    except:
+	return unicode("ERROR getting Nest information!\nCheck your configuration.\nOr wait some time if you do too much request in little time.", 'utf-8')
+
+def get_device(username , password):
+    napi = nest.Nest(username , password)
+    try:
+	return_value = []
+	for structure in napi.structures:
+            return_value.append({'type':'nest.home','where':str(structure.name),'serial':str(structure.name)})
+            for ProtectDevice in structure.protectdevices:
+		return_value.append({'type':'nest.protect','where':str(ProtectDevice.where),'serial':str(ProtectDevice.serial)})
+            for device in structure.devices:
+		return_value.append({'type':'nest.thermostat','where':str(device.where),'serial':str(device.serial)})
         return return_value
     except:
 	return unicode("ERROR getting Nest information\nCheck your configuration", 'utf-8')
@@ -65,6 +80,7 @@ def index(client_id):
             mactive="clients",
             active = 'advanced',
             device_list = get_device_list(nest_email_account,nest_password_account),
+            devices = get_device(nest_email_account,nest_password_account),
             errorlog = get_info_from_log(geterrorlogcmd))
 
     except TemplateNotFound:
