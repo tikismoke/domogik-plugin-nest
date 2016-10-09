@@ -1313,7 +1313,7 @@
 	"author_email": "new.domodroid at gmail.com",
 	"tags": ["nest,thermostat"],
 	"dependencies": [{
-	    "id": "python-nest (>=2.8.0)",
+	    "id": "python-nest (>=2.10.0)",
 	    "type": "python"
 	}],
 	"description": "Plugin for nest protect and thermostat",
