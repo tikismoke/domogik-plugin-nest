@@ -34,6 +34,7 @@ class NEST, nestException
 
 import traceback
 import subprocess
+import os
 
 try:
     import nest
@@ -63,17 +64,29 @@ class NESTclass:
     """
 
     # -------------------------------------------------------------------------------------------------
-    def __init__(self, log, user, password, period):
+    def __init__(self, log, client_id, client_secret, period, dataPath):
         try:
             """
             Create a nest instance, allowing to use NEST api
             """
             self._log = log
-            self.user = user
             self._sensors = []
-            self.password = password
             self.period = period
-            self.napi = nest.Nest(self.user, self.password)
+            self._dataPath = dataPath
+            if not os.path.exists(self._dataPath):
+                self._log.info(u"Directory data not exist, trying create : %s", self._dataPath)
+                try:
+                    os.mkdir(self._dataPath)
+                    self._log.info(u"Nest data directory created : %s" % self._dataPath)
+                except Exception as e:
+                    self._log.error(e.message)
+                    raise nestException("Nest data directory not exist : %s" % self._dataPath)
+            if not os.access(self._dataPath, os.W_OK):
+                self._log.error("User %s haven't write access on data directory : %s" % (user, self._dataPath))
+                raise nestException("User %s haven't write access on data directory : %s" % (user, self._dataPath))
+            access_token_cache_file = os.path.join(os.path.dirname(__file__), '../data/nest.json')
+            self.napi = nest.Nest(client_id=client_id, client_secret=client_secret, access_token_cache_file=access_token_cache_file)
+
         except ValueError:
             self._log.error(u"error reading Nest.")
             return
@@ -115,17 +128,24 @@ class NESTclass:
                 # list device
                 self._log.debug("structure.devices: '%s' " % structure.devices)
                 # Loop through all Thermostats
-                for thermostat in structure.devices:
+                for thermostat in structure.thermostats:
                     self._log.debug("thermostat name: '%s' " % thermostat.name)
                     event = self.mapThermostat(thermostat)
                     self._log.debug("thermostat data: '%s' " % event)
                     if name == thermostat.serial:
                         return event
                 # Loop through all Protects
-                for protect in structure.protectdevices:
+                for protect in structure.smoke_co_alarms:
                     self._log.debug("protect name: '%s' " % protect.name)
                     event = self.mapProtect(protect)
                     self._log.debug("protect data: '%s' " % event)
+                    if name == protect.name:
+                        return event
+                # Loop through all cameras
+                for camera in structure.cameras:
+                    self._log.debug("camera name: '%s' " % camera.name)
+                    event = self.mapCamera(camera)
+                    self._log.debug("camera data: '%s' " % event)
                     if name == protect.name:
                         return event
             return "failed"
@@ -179,15 +199,15 @@ class NESTclass:
         """
         """
         while not stop.isSet():
-            try:  # catch error if self._sensors modify during iteration
-                for sensor in self._sensors:
-                    val = self.readNestApi(sensor['sensor_name'])
-                    if val != "failed":
-                        send(sensor['deviceid'], val)
-                    self._log.debug(u"=> '{0}' : wait for {1} seconds".format(sensor['sensor_name'], self.period))
-            except:
-                self._log.error(u"# Loop_read_sensors EXCEPTION")
-                pass
+#            try:  # catch error if self._sensors modify during iteration
+            for sensor in self._sensors:
+                val = self.readNestApi(sensor['sensor_name'])
+                if val != "failed":
+                    send(sensor['deviceid'], val)
+                self._log.debug(u"=> '{0}' : wait for {1} seconds".format(sensor['sensor_name'], self.period))
+#            except:
+#                self._log.error(u"# Loop_read_sensors EXCEPTION")
+#                pass
             stop.wait(self.period)
 
     # -------------------------------------------------------------------------------------------------
@@ -253,22 +273,14 @@ class NESTclass:
     def mapStructure(self, structure):
 
         event = {
-            'measurement': 'nest.structure',
             'name': structure.name,
             'postal_code': structure.postal_code,
+            'num_thermostats': structure.num_thermostats,
+            'time_zone': structure.time_zone,
+            'peak_period_start_time': structure.peak_period_start_time,
+            'peak_period_end_time': structure.peak_period_end_time,
+            'eta_begin': str(structure.eta_begin),
             'country_code': structure.country_code,
-            'house_type': structure.house_type,
-            'renovation_date': structure.renovation_date,
-            'measurement_scale': structure.measurement_scale,
-            'emergency_contact_description': structure.emergency_contact_description,  # noqa
-            'emergency_contact_type': structure.emergency_contact_type,
-            'emergency_contact_phone': structure.emergency_contact_phone,
-            'structure_area_m2': ('%0.0f' % structure.structure_area),
-            #            'structure_area_ft2': ('%0.0f' % m2toft2(structure.structure_area)),  # noqa
-            #            'dr_reminder_enabled': structure.dr_reminder_enabled,
-            #            'enhanced_auto_away_enabled': structure.enhanced_auto_away_enabled,
-            #            'eta_preconditioning_active': structure.eta_preconditioning_active,
-            #            'hvac_safety_shutoff_enabled': self.boolify(structure.hvac_safety_shutoff_enabled),
             'away': structure.away
         }
         return event

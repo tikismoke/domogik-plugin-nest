@@ -58,8 +58,8 @@ class nestManager(Plugin):
             return
 
         # ### get all config keys
-        user = str(self.get_config('email_address'))
-        password = str(self.get_config('password'))
+        product_id = str(self.get_config('product_id'))
+        product_secret = str(self.get_config('product_secret'))
         period = int(self.get_config('period'))
 
         # ### get the devices list
@@ -71,9 +71,11 @@ class nestManager(Plugin):
         self.sensors = self.get_sensors(self.devices)
         self.log.info(u"==> sensors:   %s" % format(self.sensors))
 
+        pathData = str(self.get_data_files_directory())  # force str type for path data
+
         # ### Open the nest lib
         try:
-            self.NESTclass = NESTclass(self.log, user, password, period)
+            self.NESTclass = NESTclass(self.log, product_id, product_secret, period, dataPath=pathData)
         except nestException as e:
             self.log.error(e.value)
             print(e.value)

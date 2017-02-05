@@ -1,25 +1,32 @@
 {
     "configuration": [{
-        "description": "Email of your Nest account",
-        "key": "email_address",
-        "name": "Email address",
+        "description": "Product_id of your Nest dev apps account",
+        "key": "product_id",
+        "name": "Product ID",
         "required": "yes",
-        "default": "",
+        "default": "242ca3a5-2a55-486f-b784-ef75c474933a",
         "type": "string"
     }, {
-        "description": "Password of your Nest account",
-        "key": "password",
-    	"name": "Password",
-    	"required": "yes",
-    	"default": "",
-    	"type": "string"
+        "description": "Product_secret of your Nest dev apps account",
+        "key": "product_secret",
+        "name": "Product SECRET",
+        "required": "yes",
+        "default": "PXIg56btvpNvizu6lcMQSjOik",
+        "type": "string"
     }, {
-    	"description": "Refresh period in seconds",
-    	"key": "period",
-    	"name": "Period",
-    	"required": "yes",
-    	"default": "600",
-    	"type": "integer"
+        "description": "redirect url of your Nest dev apps account",
+        "key": "redirect_url",
+        "name": "Redirect URL",
+        "required": "yes",
+        "default": "http://localhost",
+        "type": "string"
+    }, {
+        "description": "Refresh period in seconds",
+        "key": "period",
+        "name": "Period",
+        "required": "yes",
+        "default": "600",
+        "type": "integer"
     }],
     "commands": {
         "set_away" : {
@@ -89,108 +96,10 @@
                 "round_value": 0
 	    }
 	},
-	"house_type": {
-	    "name": "House Type",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"renovation_date": {
-	    "name": "Renovation Date",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"measurement_scale": {
-	    "name": "Measurement Scale",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"emergency_contact_type": {
-	    "name": "Emergency Contact Type",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"emergency_contact_description": {
-	    "name": "Emergency Contact Description",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"emergency_contact_phone": {
-	    "name": "Emergency Contact Phone",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"structure_area_m2": {
-	    "name": "Structure Area m2",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
 	"away": {
 	    "name": "Away",
 	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
+	    "conversion": "from_away_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -201,8 +110,22 @@
                 "round_value": 0
 	    }
 	},
-	"measurement": {
-	    "name": "Measurement",
+	"num_thermostats": {
+	    "name": "Number of Thermostats",
+	    "data_type": "DT_Number",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	},
+	"time_zone": {
+	    "name": "Time ZONE",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -215,8 +138,50 @@
                 "round_value": 0
 	    }
 	},
-	"name": {
-	    "name": "Name",
+	"peak_period_start_time": {
+	    "name": "Peak Period Start Time",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	},
+	"peak_period_end_time": {
+	    "name": "Peak Period End Time",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	},
+	"last_manual_test_time": {
+	    "name": "Last Manual Test Time",
+	    "data_type": "DT_String",
+	    "conversion": "",
+	    "incremental": false,
+	    "timeout": 0,
+	    "history": {
+		"store": true,
+		"duplicate": false,
+                "max": 0,
+                "expire": 0,
+                "round_value": 0
+	    }
+	},
+	"eta_begin": {
+	    "name": "Eta Begin",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -271,90 +236,6 @@
                 "round_value": 0
 	    }
 	},
-	"auto_away": {
-	    "name": "Auto Away",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"battery_mv": {
-	    "name": "Battery mv",
-	    "data_type": "DT_mVolt",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"battery_level": {
-	    "name": "Battery Level",
-	    "data_type": "DT_Battery",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"co_blame_duration": {
-	    "name": "CO Blame Duration",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"co_blame_threshold": {
-	    "name": "CO Blame Threshold",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"co_previous_peak": {
-	    "name": "CO Previous Peak",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
 	"co_status": {
 	    "name": "CO status",
 	    "data_type": "DT_String",
@@ -383,304 +264,10 @@
                 "round_value": 0
 	    }
 	},
-	"component_als_test_passed": {
-	    "name": "Component als test passed",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"component_co_test_passed": {
-	    "name": "Component CO test passed",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"component_heat_test_passed": {
-	    "name": "Component heat test passed",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"component_hum_test_passed": {
-	    "name": "Component hum test passed",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"component_led_test_passed": {
-	    "name": "Component led test passed",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"component_pir_test_passed": {
-	    "name": "Component pir test passed",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"component_smoke_test_passed": {
-	    "name": "Component smoke test passed",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"component_temp_test_passed": {
-	    "name": "Component temp test passed",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"component_us_test_passed": {
-	    "name": "Component us test passed",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"component_wifi_test_passed": {
-	    "name": "Component wifi test passed",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"gesture_hush_enable": {
-	    "name": "Gesture hush enable",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"heads_up_enable": {
-	    "name": "Heads up enable",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"home_alarm_link_capable": {
-	    "name": "Home alarm linkh capable",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"home_alarm_link_connected": {
-	    "name": "Home alarm link connected",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"hushed_state": {
-	    "name": "Hushed state",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"latest_manual_test_cancelled": {
-	    "name": "Latest manual test cancelled",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"line_power_present": {
-	    "name": "Line power present",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"night_light_continuous": {
-	    "name": "Night light continuous",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"night_light_enable": {
-	    "name": "Night light enable",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"ntp_green_led_enable": {
-	    "name": "Ntp green led enable",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"steam_detection_enable": {
-	    "name": "Steam detection enable",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"wired_led_enable": {
-	    "name": "Wired led enable",
-	    "data_type": "DT_Bool",
-	    "conversion": "from_false_true_to_DT_Bool",
+	"co_status": {
+	    "name": "CO Status",
+	    "data_type": "DT_String",
+	    "conversion": "",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -719,8 +306,8 @@
                 "round_value": 0
 	    }
 	},
-	"wifi_ip_address": {
-	    "name": "Wifi ip address",
+	"battery_health": {
+	    "name": "Battery health",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -733,8 +320,8 @@
                 "round_value": 0
 	    }
 	},
-	"wifi_mac_address": {
-	    "name": "Wifi mac address",
+	"latest_manual_test_time": {
+	    "name": "Latest manual test time",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -747,202 +334,6 @@
                 "round_value": 0
 	    }
 	},
-	"thread_mac_address": {
-	    "name": "Thread mac address",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"battery_health_state": {
-	    "name": "Battery health state",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"capability_level": {
-	    "name": "Capability Level",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"certification_body": {
-	    "name": "Certification Body",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"creation_time": {
-	    "name": "Creation Time",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"home_alarm_link_type": {
-	    "name": "Home alarm link type",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"latest_manual_test_end_utc_secs": {
-	    "name": "Latest manual test end utc secs",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"latest_manual_test_start_utc_secs": {
-	    "name": "Latest manual test start utc secs",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"replace_by_date_utc_secs": {
-	    "name": "Replace by date utc secs",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"co_sequence_number": {
-	    "name": "CO sequence number",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"smoke_sequence_number": {
-	    "name": "Smoke sequence number",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-	"wired_or_battery": {
-	    "name": "Wired or Battery",
-	    "data_type": "DT_String",
-	    "conversion": "",
-	    "incremental": false,
-	    "timeout": 0,
-	    "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-	    }
-	},
-        "last_ip": {
-	    "name": "Last ip",
-    	    "data_type": "DT_String",
-            "conversion": "",
-            "incremental": false,
-            "timeout": 0,
-            "history": {
-    		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-            }
-	},
-        "local_ip": {
-            "name": "Local ip",
-            "data_type": "DT_String",
-            "conversion": "",
-            "incremental": false,
-            "timeout": 0,
-            "history": {
-		"store": true,
-		"duplicate": false,
-                "max": 0,
-                "expire": 0,
-                "round_value": 0
-            }
-        },
         "mode": {
             "name": "Mode",
             "data_type": "DT_String",
@@ -1273,7 +664,7 @@
 	    "description": "Smoke and Co2 alarm",
 	    "name": "Nest Protect",
 	    "commands": [],
-	    "sensors": ["measurement", "name", "where", "serial", "product_id", "auto_away", "battery_level", "battery_mv", "co_blame_duration", "co_blame_threshold", "co_previous_peak", "co_status", "smoke_status", "component_als_test_passed",  "component_co_test_passed", "component_heat_test_passed", "component_hum_test_passed", "component_led_test_passed", "component_pir_test_passed", "component_smoke_test_passed", "component_temp_test_passed", "component_us_test_passed", "component_wifi_test_passed", "gesture_hush_enable", "heads_up_enable", "home_alarm_link_capable", "home_alarm_link_connected", "hushed_state", "latest_manual_test_cancelled", "line_power_present", "night_light_continuous", "night_light_enable", "ntp_green_led_enable", "steam_detection_enable", "wired_led_enable", "description", "software_version", "wifi_ip_address", "wifi_mac_address", "thread_mac_address", "battery_health_state", "capability_level", "certification_body", "creation_time", "home_alarm_link_type", "latest_manual_test_end_utc_secs", "latest_manual_test_start_utc_secs", "replace_by_date_utc_secs", "co_sequence_number", "smoke_sequence_number", "wired_or_battery"],
+	    "sensors": ["name", "where", "smoke_status", "co_status", "battery_health", "last_manual_test_time", "description", "serial", "product_id", "software_version"],
 	    "parameters": [{
 		"key": "serial",
 		"xpl": false,
@@ -1286,7 +677,7 @@
 	    "description": "Learning Thermostat",
 	    "name": "Nest thermostat",
 	    "commands": ["temperature_setpoint"],
-	    "sensors": ["measurement", "name", "where", "serial", "local_ip", "mode", "error_code", "fan", "temperature_C", "temperature_F", "humidity", "target_C", "target_F", "away_low_C", "away_low_F", "away_high_C", "away_high_F", "hvac_ac_state", "hvac_cool_x2_state", "hvac_heater_state", "hvac_aux_heater_state", "hvac_heat_x2_state", "hvac_heat_x3_state", "hvac_alt_heat_state", "hvac_alt_heat_x2_state", "hvac_emer_heat_state", "online", "battery_level"],
+	    "sensors": ["name", "where", "serial", "mode", "error_code", "fan", "temperature_C", "temperature_F", "humidity", "target_C", "target_F", "away_low_C", "away_low_F", "away_high_C", "away_high_F", "hvac_ac_state", "hvac_cool_x2_state", "hvac_heater_state", "hvac_aux_heater_state", "hvac_heat_x2_state", "hvac_heat_x3_state", "hvac_alt_heat_state", "hvac_alt_heat_x2_state", "hvac_emer_heat_state", "online"],
 	    "parameters": [{
 		"key": "serial",
 		"xpl": false,
@@ -1299,7 +690,7 @@
 	    "description": "House description",
 	    "name": "Nest home",
 	    "commands": ["set_away"],
-	    "sensors": ["name", "postal_code", "country_code", "house_type", "renovation_date", "measurement_scale", "emergency_contact_type", "emergency_contact_description", "emergency_contact_phone", "structure_area_m2", "away"],
+	    "sensors": ["name", "postal_code", "country_code", "away", "num_thermostats", "time_zone", "peak_period_start_time", "peak_period_end_time", "eta_begin"],
 	    "parameters": [{
 		"key": "name",
 		"xpl": false,

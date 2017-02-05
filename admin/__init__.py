@@ -28,8 +28,8 @@ def get_info_from_log(cmd):
         output = unicode(output, 'utf-8')
     return output
 
-def get_device_list(username , password):
-    napi = nest.Nest(username , password)
+def get_device_list(product_id , product_secret, access_token_cache_file):
+    napi = nest.Nest(client_id=product_id, client_secret=product_secret, access_token_cache_file=access_token_cache_file)
     try:
 	return_value = ""
 	for structure in napi.structures:
@@ -70,17 +70,17 @@ plugin_nestdevice_adm = Blueprint(package, __name__,
 @plugin_nestdevice_adm.route('/<client_id>')
 def index(client_id):
     detail = get_client_detail(client_id)
-    nest_email_account = str(detail['data']['configuration'][1]['value'])
-    nest_password_account = str(detail['data']['configuration'][2]['value'])
-    
+    product_id = str(detail['data']['configuration'][1]['value'])
+    product_secret = str(detail['data']['configuration'][2]['value'])
+    access_token_cache_file = 'nest.json'
     try:
         return render_template('plugin_nestdevice.html',
             clientid = client_id,
             client_detail = detail,
             mactive="clients",
             active = 'advanced',
-            device_list = get_device_list(nest_email_account,nest_password_account),
-            devices = get_device(nest_email_account,nest_password_account),
+            device_list = get_device_list(product_id,product_secret,access_token_cache_file),
+            devices = get_device(product_id,product_secret,access_token_cache_file),
             errorlog = get_info_from_log(geterrorlogcmd))
 
     except TemplateNotFound:
