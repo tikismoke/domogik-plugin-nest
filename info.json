@@ -121,7 +121,7 @@
 	    }
 	},
 	"time_zone": {
-	    "name": "Time ZONE",
+	    "name": "Time Zone",
 	    "data_type": "DT_String",
 	    "conversion": "",
 	    "incremental": false,
@@ -290,8 +290,8 @@
 	},
 	"fan": {
 	    "name": "Fan",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -304,7 +304,7 @@
 	},
 	"temperature": {
 	    "name": "Temperature",
-	    "data_type": "DT_String",
+	    "data_type": "DT_Number",
 	    "conversion": "",
 	    "incremental": false,
 	    "timeout": 0,
@@ -318,7 +318,7 @@
 	},
 	"humidity": {
 	    "name": "Humidity",
-	    "data_type": "DT_String",
+	    "data_type": "DT_Scaling",
 	    "conversion": "",
 	    "incremental": false,
 	    "timeout": 0,
@@ -332,7 +332,7 @@
 	},
 	"target": {
 	    "name": "Target",
-	    "data_type": "DT_Temp",
+	    "data_type": "DT_Number",
 	    "conversion": "",
 	    "incremental": false,
 	    "timeout": 0,
@@ -360,8 +360,8 @@
 	},
 	"has_leaf": {
 	    "name": "As Leaf",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -374,8 +374,8 @@
 	},
 	"is_using_emergency_heat": {
 	    "name": "Is Using Emergency Heat",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -402,8 +402,8 @@
 	},
 	"is_locked": {
 	    "name": "Is Locked",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -416,7 +416,7 @@
 	},
 	"min_temperature": {
 	    "name": "Min Temperature",
-	    "data_type": "DT_Temp",
+	    "data_type": "DT_Number",
 	    "conversion": "",
 	    "incremental": false,
 	    "timeout": 0,
@@ -430,7 +430,7 @@
 	},
 	"max_temperature": {
 	    "name": "Max Temperature",
-	    "data_type": "DT_Temp",
+	    "data_type": "DT_Number",
 	    "conversion": "",
 	    "incremental": false,
 	    "timeout": 0,
@@ -542,7 +542,7 @@
 	},
 	"hot_water_temperature": {
 	    "name": "Hot Water Temperature",
-	    "data_type": "DT_String",
+	    "data_type": "DT_Number",
 	    "conversion": "",
 	    "incremental": false,
 	    "timeout": 0,
@@ -570,8 +570,8 @@
 	},
 	"sound_detected": {
 	    "name": "Sound Detected",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -584,8 +584,8 @@
 	},
 	"motion_detected": {
 	    "name": "Motion Detected",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -598,8 +598,8 @@
 	},
 	"person_detected": {
 	    "name": "person Detected",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -640,7 +640,7 @@
 	},
 	"snapshot_url": {
 	    "name": "Snapshot Url",
-	    "data_type": "DT_String",
+	    "data_type": "DT_VideoMjpeg",
 	    "conversion": "",
 	    "incremental": false,
 	    "timeout": 0,
@@ -654,8 +654,8 @@
 	},
 	"is_streaming": {
 	    "name": "Is Streaming",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -668,8 +668,8 @@
 	},
 	"is_video_history_enabled": {
 	    "name": "Is Video History Enabled",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -682,8 +682,8 @@
 	},
 	"is_audio_enabled": {
 	    "name": "Is Audio Enabled",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -696,8 +696,8 @@
 	},
 	"is_public_share_enabled": {
 	    "name": "Is Public Share Enabled",
-	    "data_type": "DT_String",
-	    "conversion": "",
+	    "data_type": "DT_Bool",
+	    "conversion": "from_false_true_to_DT_Bool",
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
@@ -741,7 +741,7 @@
 	    "id": "nest.camera",
 	    "description": "",
 	    "name": "Nest camera",
-	    "commands": ["temperature_setpoint"],
+	    "commands": [],
 	    "sensors": ["name", "where", "serial", "ongoing_event", "sound_detected", "motion_detected", "person_detected", "activity_zones", "last_event", "snapshot_url", "online", "is_streaming", "is_video_history_enabled", "is_audio_enabled", "is_public_share_enabled"],
 	    "parameters": [{
 		"key": "serial",
