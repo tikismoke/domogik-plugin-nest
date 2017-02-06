@@ -246,50 +246,62 @@ class NESTclass:
 
     # -------------------------------------------------------------------------------------------------
     def mapThermostat(self, thermostat):
-        if thermostat.away_temperature[1] is not None:
-            away_tempC = (float)('%0.1f' % thermostat.away_temperature[1])
-            away_tempF = (float)('%0.1f' % CtoF(thermostat.away_temperature[1]))
-        else:
-            away_tempC = 'Null'
-            away_tempF = 'Null'
-        if thermostat.mode != "range":
-            if thermostat.target is not None:
-                print thermostat.targe
-                #                   self._log.error(u"### Target= %s " % thermostat.target)
-                #                   target = thermostat.target
-        else:
-            self._log.info(u"### Target temperature = " + thermostat.target)
-            target = thermostat.target[1]
         event = {
-            'measurement': 'nest.thermostat',
-            'name': thermostat.name,
-            'where': thermostat.where,
-            'serial': thermostat.serial,
-            #            'last_ip': thermostat.last_ip,
-            'local_ip': thermostat.local_ip,
-            'mode': thermostat.mode,
-            #            'last_connection': self.epoch2date(thermostat.last_connection/1000),
-            'error_code': thermostat.error_code,
-            'fan': self.boolify(thermostat.fan),
-            'temperature_C': (float)('%0.1f' % thermostat.temperature),
-            'temperature_F': (float)('%0.1f' % self.CtoF(thermostat.temperature)),
-            'humidity': thermostat.humidity,
-            'target_C': (float)('%0.1f' % target),
-            'target_F': (float)('%0.1f' % self.CtoF(target)),
-            'away_low_C': (float)('%0.1f' % thermostat.away_temperature[0]),
-            'away_low_F': (float)('%0.1f' % self.CtoF(thermostat.away_temperature[0])),  # noqa
-            'away_high_C': away_tempC,
-            'away_high_F': away_tempF,
-            'hvac_ac_state': self.boolify(thermostat.hvac_ac_state),
-            'hvac_cool_x2_state': self.boolify(thermostat.hvac_cool_x2_state),
-            'hvac_heater_state': self.boolify(thermostat.hvac_heater_state),
-            'hvac_aux_heater_state': self.boolify(thermostat.hvac_aux_heater_state),
-            'hvac_heat_x2_state': self.boolify(thermostat.hvac_heat_x2_state),
-            'hvac_heat_x3_state': self.boolify(thermostat.hvac_heat_x3_state),
-            'hvac_alt_heat_state': self.boolify(thermostat.hvac_alt_heat_state),
-            'hvac_alt_heat_x2_state': self.boolify(thermostat.hvac_alt_heat_x2_state),  # noqa
-            'hvac_emer_heat_state': self.boolify(thermostat.hvac_emer_heat_state),
-            'online': self.boolify(thermostat.online),
-            'battery_level': float(thermostat.battery_level)
+    	    'name': thermostat.name,
+	    'where': thermostat.where,
+    	    'serial': thermostat.serial,
+    	    'fan': thermostat.fan,
+    	    'humidity': thermostat.humidity,
+    	    'mode': thermostat.mode,
+    	    'has_leaf': thermostat.has_leaf,
+    	    'is_using_emergency_heat': thermostat.is_using_emergency_heat,
+    	    'last_connection': thermostat.last_connection,
+    	    'temperature_scale': thermostat.temperature_scale,
+    	    'is_locked': thermostat.is_locked,
+#       'locked_temperature': thermostat.locked_temperature,
+    	    'temperature': thermostat.temperature,
+    	    'min_temperature': thermostat.min_temperature,
+    	    'max_temperature': thermostat.max_temperature,
+    	    'target': thermostat.target,
+#	    'eco_temperature': thermostat.eco_temperature,
+    	    'can_heat': thermostat.can_heat,
+    	    'can_cool': thermostat.can_cool,
+    	    'has_humidifier': thermostat.has_humidifier,
+    	    'has_dehumidifier': thermostat.has_dehumidifier,
+	    'has_fan': thermostat.has_fan,
+	    'has_hot_water_control': thermostat.has_hot_water_control,
+    	    'hot_water_temperature': thermostat.hot_water_temperature,
+    	    'hvac_state': thermostat.hvac_state,
+    	    'online': thermostat.online,
+	    'description': thermostat.description
+        }
+        return event
+
+    # -------------------------------------------------------------------------------------------------
+    def mapCamera(self, camera):
+        event = {
+    	    'name': camera.name,
+	    'where': camera.where,
+	    'serial': camera.serial,
+#	    'ongoing_event': camera.ongoing_event,
+	    'ongoing_event': '',
+#	    'has_ongoing_motion_in_zone': camera.has_ongoing_motion_in_zone,
+	    'has_ongoing_motion_in_zone': '',
+	    'sound_detected': camera.sound_detected,
+	    'motion_detected': camera.motion_detected,
+	    'person_detected': camera.person_detected,
+#	    'activity_zones': camera.activity_zones,
+	    'activity_zones': '',
+#	    'last_event': camera.last_event,
+	    'last_event': '',
+	    'is_streaming': camera.is_streaming,
+	    'is_video_history_enabled': camera.is_video_history_enabled,
+	    'is_audio_enabled': camera.is_audio_enabled,
+	    'is_public_share_enabled': camera.is_public_share_enabled,
+#	    'model': camera.model,
+	    'model': '',
+	    'snapshot_url': camera.snapshot_url,
+	    'description': camera.description,
+	    'online': camera.online,
         }
         return event
