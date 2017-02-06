@@ -3,6 +3,26 @@
 
 {% block content %}
 {% include theme("client_menu.html") %}
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>{% trans %}Generating a Code for Token{% endtrans %}</h4></div>
+        <div class="panel-body">
+            <p>{% trans %}Open this link into a new navigation window, fill your Nest user account and give you authorisation to use it:{% endtrans %}</p>
+            <pre>{{ get_token_url }}</pre>
+            <a target="_blank" href="{{ get_token_url }}" class="btn btn-defautl"> Open this link in a new window to get your code!</a>
+            <p></p>
+            <p>{% trans %}Put the code displayed on Nest page to generate and save a token file in data.{% endtrans %}</p>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="usr">Code:</label>
+                    <input type="text" class="form-control" id={{form.code}}
+                </div>
+                <button class="btn btn-info" type="submit">{% trans %}Generate token file{% endtrans %}</button>
+                <p>{% trans %}You will need to restart plugin after generating the token file.{% endtrans %}</p>
+            </form>
+        </div>
+    </div>
+</div>
 
 <div class="container">
     <div class="panel panel-default">
@@ -22,7 +42,7 @@
                 {% for device in devices %}
                 <tr>
                     <td>
-                        <a href="/client/{{ clientid }}/dmg_devices/new/type/{{device.type}}?serial={{ device.serial }}&name={{ device.serial }}">{{ device.serial }}</a></td>
+                        <a href="/client/{{ clientid }}/dmg_devices/new/type/{{device.type}}?name={{ device.serial }}&serial={{ device.serial }}">{{ device.serial }}</a></td>
                     <td>{{ device.type }}</td>
                     <td>{{ device.where }}</td>
                 </tr>
