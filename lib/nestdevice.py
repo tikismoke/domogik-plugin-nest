@@ -130,21 +130,21 @@ class NESTclass:
                 # Loop through all Thermostats
                 for thermostat in structure.thermostats:
                     self._log.debug("thermostat name: '%s' " % thermostat.name)
-                    if name == thermostat.name:
+                    if name == thermostat.serial:
                         event = self.mapThermostat(thermostat)
                         self._log.debug("thermostat data: '%s' " % event)
                         return event
                 # Loop through all Protects
                 for protect in structure.smoke_co_alarms:
                     self._log.debug("protect name: '%s' " % protect.name)
-                    if name == protect.name:
+                    if name == protect.serial:
                         event = self.mapProtect(protect)
                         self._log.debug("protect data: '%s' " % event)
                         return event
                 # Loop through all cameras
                 for camera in structure.cameras:
                     self._log.debug("camera name: '%s' " % camera.name)
-                    if name == protect.name:
+                    if name == camera.serial:
                         event = self.mapCamera(camera)
                         self._log.debug("camera data: '%s' " % event)
                         return event
