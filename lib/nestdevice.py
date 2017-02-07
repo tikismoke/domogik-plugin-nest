@@ -175,7 +175,7 @@ class NESTclass:
                 elif command == "temperature":
                     for thermostat in structure.thermostats:
                         if name == thermostat.serial:
-                            if thermostat.mode != "range":
+                            if thermostat.mode != "heat-cool":
                                 if int(value) > 32:
                                     thermostat.target = 32
                                 elif int(value) < 9:
