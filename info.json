@@ -57,7 +57,7 @@
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
-		"store": true,
+		"store": false,
 		"duplicate": false,
 		"max": 0,
 		"expire": 0,
@@ -71,7 +71,7 @@
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
-		"store": true,
+		"store": false,
 		"duplicate": false,
 		"max": 0,
 		"expire": 0,
@@ -85,7 +85,7 @@
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
-		"store": true,
+		"store": false,
 		"duplicate": false,
 		"max": 0,
 		"expire": 0,
@@ -127,7 +127,7 @@
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
-		"store": true,
+		"store": false,
 		"duplicate": false,
 		"max": 0,
 		"expire": 0,
@@ -183,7 +183,7 @@
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
-		"store": true,
+		"store": false,
 		"duplicate": false,
 		"max": 0,
 		"expire": 0,
@@ -197,7 +197,7 @@
 	    "incremental": false,
 	    "timeout": 0,
 	    "history": {
-		"store": true,
+		"store": false,
 		"duplicate": false,
 		"max": 0,
 		"expire": 0,
