@@ -59,11 +59,11 @@ def get_device_list(product_id , product_secret, access_token_cache_file):
     for structure in napi.structures:
         return_value =  return_value + "Nest.Home name: " + " " + str(structure.name) + "\n"
         for ProtectDevice in structure.smoke_co_alarms:
-            return_value = return_value + "Nest.Protect name: " + " " + str(ProtectDevice.name) + " " + str(ProtectDevice.serial) + "\n"
+            return_value = return_value + "Nest.Protect name: " + " " + str(ProtectDevice.where) + " " + str(ProtectDevice.serial) + "\n"
         for thermostat in structure.thermostats:
-            return_value = return_value + "Nest.Thermostat name: " + " " + str(thermostat.name) + " " + str(thermostat.serial) + "\n"
+            return_value = return_value + "Nest.Thermostat name: " + " " + str(thermostat.where) + " " + str(thermostat.serial) + "\n"
         for camera in structure.cameras:
-            return_value = return_value + "Nest.Camera name: " + " " + str(camera.name) + " " + str(camera.serial) + "\n"
+            return_value = return_value + "Nest.Camera name: " + " " + str(camera.where) + " " + str(camera.serial) + "\n"
     return return_value
 #    except:
 #	return unicode("ERROR getting Nest information!\nCheck your configuration.\nOr wait some time if you do too much request in little time.", 'utf-8')
