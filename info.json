@@ -60,7 +60,7 @@
 	    "name": "Fan On-Off",
 	    "return_confirmation": true,
 	    "parameters": [{
-		"key": "temperature",
+		"key": "fan",
 		"data_type": "DT_Switch",
 		"conversion": ""
 	    }]
