@@ -46,6 +46,24 @@
 		"data_type": "DT_Temp",
 		"conversion": ""
 	    }]
+	},
+	"set_mode": {
+	    "name": "Select Mode",
+	    "return_confirmation": true,
+	    "parameters": [{
+		"key": "mode",
+		"data_type": "DT_HVACMode",
+		"conversion": ""
+	    }]
+	},
+	"set_fan": {
+	    "name": "Fan On-Off",
+	    "return_confirmation": true,
+	    "parameters": [{
+		"key": "temperature",
+		"data_type": "DT_Switch",
+		"conversion": ""
+	    }]
 	}
     },
     "xpl_commands": {},
@@ -728,7 +746,7 @@
 	    "id": "nest.thermostat",
 	    "description": "Learning Thermostat",
 	    "name": "Nest thermostat",
-	    "commands": ["temperature_setpoint"],
+	    "commands": ["temperature_setpoint", "set_mode", "set_fan"],
 	    "sensors": ["name", "where", "serial", "mode", "fan", "temperature", "humidity", "target", "hvac_state", "has_leaf", "is_using_emergency_heat", "last_connection", "is_locked", "min_temperature", "online", "max_temperature", "can_heat", "can_cool", "has_humidifier", "has_dehumidifier", "has_fan", "has_hot_water_control", "hot_water_temperature"],
 	    "parameters": [{
 		"key": "serial",
