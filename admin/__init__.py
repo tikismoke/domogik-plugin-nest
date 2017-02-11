@@ -39,7 +39,7 @@ def generate_token_file(authorization_code, product_id , product_secret, access_
     napi = nest.Nest(client_id=product_id, client_secret=product_secret, access_token_cache_file=access_token_cache_file)
     napi.request_token(authorization_code)
     if napi.invalid_access_token is True:
-        flash(gettext(u"Error while getting token from Nest code, check you client id/secret redirect url or code"),
+        flash(gettext(u"Error while getting token from Nest code, check you products id/secret Pin code"),
               "error")
     else:
         flash(gettext(u"Successfully generate token. Please restart the plugin."), "success")

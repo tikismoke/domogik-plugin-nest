@@ -14,13 +14,6 @@
 	"default": "PXIg56btvpNvizu6lcMQSjOik",
 	"type": "string"
     }, {
-	"description": "redirect url of your Nest dev apps account",
-	"key": "redirect_url",
-	"name": "Redirect URL",
-	"required": "yes",
-	"default": "http://localhost",
-	"type": "string"
-    }, {
 	"description": "Refresh period in seconds",
 	"key": "period",
 	"name": "Period",
