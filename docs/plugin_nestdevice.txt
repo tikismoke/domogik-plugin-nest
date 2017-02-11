@@ -16,6 +16,10 @@ Purpose
 =======
 This Domogik plugin NestDevices allow user to see all informations from nest API (House/Protect/Thermostat). For now thermostats commands are not available like home/away commands.
 
+You must create a dev accounts with a new products or use the default values provide in the plugin.
+
+If you create a dev accounts and products on https://developers.nest.com/ remember to give all right and let redirection url to empty.
+
 
 
 Plugin configuration
@@ -29,9 +33,9 @@ In Domogik administration section, go to client plugin-nestdevice details page.
 +================+======================+===============================================================================+
 | startup-plugin | false                | Automatically start plugin at Domogik startup                                 |
 +----------------+----------------------+-------------------------------------------------------------------------------+
-| email address  |                      | Your Nest.com account mail address                                            |
+| product_id     |                      | Your Nest.com developers product id                                           |
 +----------------+----------------------+-------------------------------------------------------------------------------+
-| password       | false                | Your Nest.com account password                                                |
+| product_secret |                      | Your Nest.com developers product secret                                       |
 +----------------+----------------------+-------------------------------------------------------------------------------+
 | period         | 300                  | Refresh period from NEST API platform in seconds                              |
 +----------------+----------------------+-------------------------------------------------------------------------------+
@@ -60,8 +64,8 @@ device_types : home
 | name              | name of the house | Should be the name of the house as defined in your nest account              |
 +-------------------+-------------------+------------------------------------------------------------------------------+
 
-device_types : protect and thermostat
-*************************************
+device_types : protect, camera and thermostat
+*********************************************
 
 +-------------------+-------------------+------------------------------------------------------------------------------+
 | Key               | Example           | Description                                                                  |
@@ -74,5 +78,5 @@ device_types : protect and thermostat
 +-------------------+-------------------+------------------------------------------------------------------------------+
 
 +-------------------+-------------------+------------------------------------------------------------------------------+
-| serial            | serial number     | Serial of the device, it's available in nest url page of the device          |
+| serial            | serial number     | Serial of the device, it's available in advanced page of the plugin          |
 +-------------------+-------------------+------------------------------------------------------------------------------+
