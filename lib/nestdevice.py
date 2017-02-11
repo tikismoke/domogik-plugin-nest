@@ -159,7 +159,7 @@ class NESTclass:
         """
             Write nest device 'name' with 'value'
         """
-
+        self._log.debug(u"==> Receive command '%s'" % command)
         self._log.debug(u"==> Receive writeState command for '%s'" % name)
         self._log.debug(u"==> And value '%s'" % value)
 
@@ -187,6 +187,23 @@ class NESTclass:
                                 self._log.warning(
                                     u"Settings temperature when mode is set to heat-cool is not implement yet!!!!")
                                 # Todo find a way to handle this case
+                elif command == "fan":
+                    for thermostat in structure.thermostats:
+                        if name == thermostat.serial:
+			    thermostat.fan = value
+                elif command == "mode":
+                    for thermostat in structure.thermostats:
+                        if name == thermostat.serial:
+			    if value == "0":
+				thermostat.mode = "heat-cool"
+			    if value == "1":
+				thermostat.mode = "heat"
+			    if value == "2":
+				thermostat.mode = "heat"
+			    if value == "3":
+				thermostat.mode = "eco"
+			    if value == "4":
+				thermostat.mode = "off"
 
         except AttributeError:
             errorstr = u"### Sensor '%s', ERROR while writing value." % name

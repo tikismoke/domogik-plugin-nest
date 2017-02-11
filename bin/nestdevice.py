@@ -163,7 +163,14 @@ class nestManager(Plugin):
                         sensor_name = self.get_parameter(a_device, "serial")
                         self.log.info(u"==> Received for nest name or serial '%s' MQ REQ command message: %s" % (
                         sensor_name, format(data)))
-                        status, reason = self.NESTclass.writeState(sensor_name, "temperature", data["temperature"])
+                        if "temperature" in data:
+			    status, reason = self.NESTclass.writeState(sensor_name, "temperature", data["temperature"])
+			elif "mode" in data:
+			    status, reason = self.NESTclass.writeState(sensor_name, "mode", data["mode"])
+			elif "fan" in data:
+			    status, reason = self.NESTclass.writeState(sensor_name, "fan", data["fan"])
+			else:
+                            self.log.error(u"==> Command not implemented yet")
 
                         # This should be eaisier but not available
                     #	    sensor_name = self.get_parameter(self.device_list[device_id], "name")
